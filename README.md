@@ -38,12 +38,25 @@ The bubble home page will consist of bubbles to show how much each currency is w
 - [ ] Draw out the wireframe 
 
 ### Day 1: 
+- [ ] Set up index.html with canvas for Three.js and webpack to bundle code.
+- [ ] Set up application to fetch data from [Coinbin](https://coinbin.org/) & [CoinMarketCap](https://coinmarketcap.com/api/)
+- [ ] basepath: https://coinbin.org/ & https://api.coinmarketcap.com/v1/
+
 
 ### Day 2: 
+- [ ]
+- [ ]
+- [ ]
 
 ### Day 3: 
+- [ ]
+- [ ]
+- [ ]
 
 ### Day 4: 
+- [ ]
+- [ ]
+- [ ]
 
 ## Bonus features 
 Gather political events from new sources to reflect the changes in cryptocurrency valuation 
