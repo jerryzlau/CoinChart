@@ -26,7 +26,6 @@ The bubble home page will consist of bubbles to show how much each currency is w
 * `JavaScript` for general application logic 
 * `d3.js` for visualization 
 * `webpack` for bundle js files 
-* `Ruby on Rails` to store past data in case api link is broken
 * `Reactjs` to management multiple webpages 
 
 ## Implementation Timeline
@@ -37,26 +36,28 @@ The bubble home page will consist of bubbles to show how much each currency is w
 - [ ] Plan out what kind of data to display and how they would shape 
 - [ ] Draw out the wireframe 
 
-### Day 1: 
+### Day 1: Get all the data necessary for this project 
 - [ ] Set up index.html with canvas for Three.js and webpack to bundle code.
 - [ ] Set up application to fetch data from [Coinbin](https://coinbin.org/) & [CoinMarketCap](https://coinmarketcap.com/api/)
-- [ ] basepath: https://coinbin.org/ & https://api.coinmarketcap.com/v1/
+- [ ] basepath: https://coinbin.org/ & https://api.coinmarketcap.com/v1/ & https://github.com/toddmotto/public-apis#cryptocurrency
+- [ ] use curl to store data into different files 
+- [ ] pull data from multiple apis 
+- [ ] figure out the relations of these data 
 
-
-### Day 2: 
-- [ ]
-- [ ]
-- [ ]
+### Day 2: Use this day to learn how to use d3
+- [ ] resources:  https://d3js.org/#introduction
+- [ ] use this example for bubble home page: https://bl.ocks.org/mbostock/4063269
+- [ ] use this example for coin show page: https://bl.ocks.org/mbostock/3883245
+- [ ] start with just one currency, get the logic fully working and then move on for more
 
 ### Day 3: 
-- [ ]
-- [ ]
-- [ ]
+- [ ] continue working on bubble home-page 
+- [ ] work on bubble hover-effects, what kind of data to show? 
+- [ ] work on multiple page transition when there is time 
+
 
 ### Day 4: 
-- [ ]
-- [ ]
-- [ ]
+- [ ] At this point, bubble homepage must work, if there is time, work on currency show page
 
 ## Bonus features 
 Gather political events from new sources to reflect the changes in cryptocurrency valuation 
