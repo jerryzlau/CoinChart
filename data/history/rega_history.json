@@ -1,0 +1,868 @@
+{
+  "history": [
+    {
+      "timestamp": "2017-10-02T00:00:43.938295Z", 
+      "value": 0.005715, 
+      "value.currency": "USD", 
+      "when": "18 hours ago"
+    }, 
+    {
+      "timestamp": "2017-10-01T00:01:23.807114Z", 
+      "value": 0.00621, 
+      "value.currency": "USD", 
+      "when": "a day ago"
+    }, 
+    {
+      "timestamp": "2017-09-30T00:01:02.895161Z", 
+      "value": 0.005506, 
+      "value.currency": "USD", 
+      "when": "2 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-29T00:01:07.275152Z", 
+      "value": 0.005246, 
+      "value.currency": "USD", 
+      "when": "3 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-28T00:01:06.252370Z", 
+      "value": 0.005932, 
+      "value.currency": "USD", 
+      "when": "4 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-27T00:00:31.124407Z", 
+      "value": 0.0062, 
+      "value.currency": "USD", 
+      "when": "5 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-26T00:00:39.772214Z", 
+      "value": 0.008103, 
+      "value.currency": "USD", 
+      "when": "6 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-25T00:00:37.884922Z", 
+      "value": 0.008565, 
+      "value.currency": "USD", 
+      "when": "7 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-24T00:01:08.456130Z", 
+      "value": 0.013299, 
+      "value.currency": "USD", 
+      "when": "8 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-23T00:01:04.233341Z", 
+      "value": 0.018051, 
+      "value.currency": "USD", 
+      "when": "9 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-22T00:01:18.124794Z", 
+      "value": 0.0058, 
+      "value.currency": "USD", 
+      "when": "10 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-21T00:01:03.945816Z", 
+      "value": 0.004249, 
+      "value.currency": "USD", 
+      "when": "11 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-20T00:00:53.123537Z", 
+      "value": 0.005212, 
+      "value.currency": "USD", 
+      "when": "12 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-19T00:00:53.641576Z", 
+      "value": 0.001637, 
+      "value.currency": "USD", 
+      "when": "13 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-18T00:00:38.353852Z", 
+      "value": 0.000778, 
+      "value.currency": "USD", 
+      "when": "14 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-17T00:00:55.850716Z", 
+      "value": 0.000297, 
+      "value.currency": "USD", 
+      "when": "15 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-15T00:00:56.987042Z", 
+      "value": 0.000305, 
+      "value.currency": "USD", 
+      "when": "17 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-14T00:01:20.604709Z", 
+      "value": 0.000349, 
+      "value.currency": "USD", 
+      "when": "18 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-13T00:00:52.085818Z", 
+      "value": 0.000375, 
+      "value.currency": "USD", 
+      "when": "19 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-12T00:00:57.358033Z", 
+      "value": 0.000379, 
+      "value.currency": "USD", 
+      "when": "20 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-11T00:00:45.877513Z", 
+      "value": 0.000298, 
+      "value.currency": "USD", 
+      "when": "21 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-10T00:00:50.300796Z", 
+      "value": 0.000304, 
+      "value.currency": "USD", 
+      "when": "22 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-09T00:01:01.526127Z", 
+      "value": 0.000346, 
+      "value.currency": "USD", 
+      "when": "23 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-08T00:01:19.209694Z", 
+      "value": 0.000371, 
+      "value.currency": "USD", 
+      "when": "24 days ago"
+    }, 
+    {
+      "timestamp": "2017-09-07T00:01:16.848760Z", 
+      "value": 0.00037, 
+      "value.currency": "USD", 
+      "when": "25 days ago"
+    }, 
+    {
+      "timestamp": "2017-08-31T00:00:58.098159Z", 
+      "value": 0.000226, 
+      "value.currency": "USD", 
+      "when": "a month ago"
+    }, 
+    {
+      "timestamp": "2017-08-30T00:01:18.022251Z", 
+      "value": 0.00023, 
+      "value.currency": "USD", 
+      "when": "a month ago"
+    }, 
+    {
+      "timestamp": "2017-08-25T00:01:26.259105Z", 
+      "value": 0.000167, 
+      "value.currency": "USD", 
+      "when": "a month ago"
+    }, 
+    {
+      "timestamp": "2017-08-24T22:49:26.807478Z", 
+      "value": 0.000167, 
+      "value.currency": "USD", 
+      "when": "a month ago"
+    }, 
+    {
+      "timestamp": "2017-08-19T00:02:18.385756Z", 
+      "value": 0.000168, 
+      "value.currency": "USD", 
+      "when": "a month ago"
+    }, 
+    {
+      "timestamp": "2017-08-18T00:02:01.961946Z", 
+      "value": 0.000172, 
+      "value.currency": "USD", 
+      "when": "a month ago"
+    }, 
+    {
+      "timestamp": "2017-08-17T00:01:32.817131Z", 
+      "value": 0.000483, 
+      "value.currency": "USD", 
+      "when": "a month ago"
+    }, 
+    {
+      "timestamp": "2017-08-16T00:01:58.344091Z", 
+      "value": 0.000456, 
+      "value.currency": "USD", 
+      "when": "a month ago"
+    }, 
+    {
+      "timestamp": "2017-08-14T00:01:51.664332Z", 
+      "value": 0.000412, 
+      "value.currency": "USD", 
+      "when": "a month ago"
+    }, 
+    {
+      "timestamp": "2017-08-13T00:02:00.422206Z", 
+      "value": 0.000387, 
+      "value.currency": "USD", 
+      "when": "a month ago"
+    }, 
+    {
+      "timestamp": "2017-08-12T00:02:28.529475Z", 
+      "value": 0.000438, 
+      "value.currency": "USD", 
+      "when": "a month ago"
+    }, 
+    {
+      "timestamp": "2017-04-08T00:01:15.603031Z", 
+      "value": 3.5e-05, 
+      "value.currency": "USD", 
+      "when": "5 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-31T00:00:52.580543Z", 
+      "value": 7.2e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-30T00:01:16.919916Z", 
+      "value": 7.3e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-24T00:01:28.774404Z", 
+      "value": 7.3e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-23T00:01:12.329476Z", 
+      "value": 7.3e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-22T00:01:11.460249Z", 
+      "value": 7.8e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-20T00:00:56.190190Z", 
+      "value": 5.3e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-19T00:01:01.687491Z", 
+      "value": 4.9e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-18T00:00:40.142891Z", 
+      "value": 7.7e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-17T00:00:54.750078Z", 
+      "value": 5.9e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-16T00:01:21.029241Z", 
+      "value": 3.7e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-15T00:00:53.121192Z", 
+      "value": 5e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-14T00:01:42.540181Z", 
+      "value": 7.4e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-13T00:00:57.060619Z", 
+      "value": 7.3e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-12T01:01:27.154533Z", 
+      "value": 7.1e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-11T01:01:35.859153Z", 
+      "value": 5.6e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-10T01:02:10.228762Z", 
+      "value": 9.5e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-09T01:00:55.545657Z", 
+      "value": 4.6e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-08T01:01:30.977786Z", 
+      "value": 6.1e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-07T01:00:47.568726Z", 
+      "value": 6.4e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-05T01:00:52.891752Z", 
+      "value": 5.1e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-03-04T01:01:04.780315Z", 
+      "value": 5.1e-05, 
+      "value.currency": "USD", 
+      "when": "6 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-28T01:01:17.087495Z", 
+      "value": 3.5e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-27T01:01:05.698073Z", 
+      "value": 4.7e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-26T01:01:30.744583Z", 
+      "value": 3.4e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-25T01:00:53.163281Z", 
+      "value": 4.7e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-24T01:01:26.354957Z", 
+      "value": 7e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-23T01:01:02.778469Z", 
+      "value": 4.5e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-21T01:00:54.873583Z", 
+      "value": 5.3e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-20T01:01:06.218817Z", 
+      "value": 5.2e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-19T01:00:43.931084Z", 
+      "value": 4.2e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-18T01:00:59.891244Z", 
+      "value": 2.1e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-16T01:01:07.708551Z", 
+      "value": 4e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-15T01:01:30.448806Z", 
+      "value": 4e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-14T01:01:08.934210Z", 
+      "value": 2e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-13T01:00:43.183792Z", 
+      "value": 3e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-12T01:01:08.949125Z", 
+      "value": 3e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-11T01:01:08.171592Z", 
+      "value": 4e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-10T01:01:40.015352Z", 
+      "value": 2e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-09T01:00:46.347169Z", 
+      "value": 2.1e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-08T01:01:12.272978Z", 
+      "value": 2.1e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-06T01:01:36.784562Z", 
+      "value": 3.1e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-05T01:01:14.528526Z", 
+      "value": 3.1e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-04T01:00:49.207723Z", 
+      "value": 4.1e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-03T01:00:55.454682Z", 
+      "value": 4e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-02T01:01:12.443879Z", 
+      "value": 4e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-02-01T01:00:43.188780Z", 
+      "value": 3.9e-05, 
+      "value.currency": "USD", 
+      "when": "7 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-31T01:00:45.411289Z", 
+      "value": 5.5e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-30T01:00:51.892942Z", 
+      "value": 3.7e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-29T01:01:17.863882Z", 
+      "value": 5.5e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-28T01:15:11.433550Z", 
+      "value": 5.5e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-27T01:01:17.212570Z", 
+      "value": 9.2e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-26T01:00:51.680245Z", 
+      "value": 4.5e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-25T01:00:40.753684Z", 
+      "value": 3.6e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-24T01:00:59.493243Z", 
+      "value": 2.8e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-23T01:00:44.878046Z", 
+      "value": 2.8e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-22T01:01:22.764873Z", 
+      "value": 1.8e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-21T01:01:02.628751Z", 
+      "value": 1.8e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-19T01:02:10.234432Z", 
+      "value": 2.6e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-18T01:01:54.872670Z", 
+      "value": 2.7e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-17T01:02:55.736556Z", 
+      "value": 1.7e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-16T01:01:51.977363Z", 
+      "value": 2.5e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-15T01:01:55.988366Z", 
+      "value": 2.5e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-14T01:02:12.844364Z", 
+      "value": 1.6e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-13T01:01:56.431748Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-12T01:01:52.789322Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-11T01:02:37.235998Z", 
+      "value": 9e-06, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-06T01:01:28.628300Z", 
+      "value": 2.9e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-03T01:02:19.887715Z", 
+      "value": 2e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-02T01:02:27.666174Z", 
+      "value": 2e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2017-01-01T01:02:35.299136Z", 
+      "value": 1e-05, 
+      "value.currency": "USD", 
+      "when": "8 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-30T01:02:17.401521Z", 
+      "value": 1e-05, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-27T01:02:12.587942Z", 
+      "value": 9e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-26T01:01:54.488416Z", 
+      "value": 9e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-25T01:02:05.848887Z", 
+      "value": 9e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-23T01:02:51.525838Z", 
+      "value": 9e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-21T01:02:15.605236Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-20T01:02:29.193466Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-19T01:02:05.809732Z", 
+      "value": 1.6e-05, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-18T01:02:41.984979Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-17T01:11:50.789255Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-16T01:01:30.220812Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-15T01:01:34.940823Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-14T01:01:23.969482Z", 
+      "value": 2.3e-05, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-13T01:01:03.976831Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-12T01:01:36.281494Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-11T01:01:03.240624Z", 
+      "value": 2.3e-05, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-10T01:01:45.470563Z", 
+      "value": 1.5e-05, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-09T01:01:30.982035Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-08T01:01:15.583830Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-07T01:01:24.721379Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-06T01:01:17.982285Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-05T01:01:46.247158Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-04T01:01:32.292340Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-03T01:01:11.637364Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-02T01:01:22.246271Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "9 months ago"
+    }, 
+    {
+      "timestamp": "2016-12-01T01:00:53.306449Z", 
+      "value": 7e-06, 
+      "value.currency": "USD", 
+      "when": "10 months ago"
+    }, 
+    {
+      "timestamp": "2016-11-30T01:01:17.381562Z", 
+      "value": 7e-06, 
+      "value.currency": "USD", 
+      "when": "10 months ago"
+    }, 
+    {
+      "timestamp": "2016-11-29T01:01:47.188375Z", 
+      "value": 7e-06, 
+      "value.currency": "USD", 
+      "when": "10 months ago"
+    }, 
+    {
+      "timestamp": "2016-11-28T01:01:30.008029Z", 
+      "value": 7e-06, 
+      "value.currency": "USD", 
+      "when": "10 months ago"
+    }, 
+    {
+      "timestamp": "2016-11-27T01:01:14.112818Z", 
+      "value": 1.5e-05, 
+      "value.currency": "USD", 
+      "when": "10 months ago"
+    }, 
+    {
+      "timestamp": "2016-11-26T01:00:56.561440Z", 
+      "value": 7e-06, 
+      "value.currency": "USD", 
+      "when": "10 months ago"
+    }, 
+    {
+      "timestamp": "2016-11-25T01:01:14.963726Z", 
+      "value": 7e-06, 
+      "value.currency": "USD", 
+      "when": "10 months ago"
+    }, 
+    {
+      "timestamp": "2016-11-24T01:00:48.614881Z", 
+      "value": 1.5e-05, 
+      "value.currency": "USD", 
+      "when": "10 months ago"
+    }, 
+    {
+      "timestamp": "2016-11-23T01:01:13.198891Z", 
+      "value": 1.5e-05, 
+      "value.currency": "USD", 
+      "when": "10 months ago"
+    }, 
+    {
+      "timestamp": "2016-11-22T01:01:05.869300Z", 
+      "value": 1.5e-05, 
+      "value.currency": "USD", 
+      "when": "10 months ago"
+    }, 
+    {
+      "timestamp": "2016-11-21T01:01:18.921869Z", 
+      "value": 1.5e-05, 
+      "value.currency": "USD", 
+      "when": "10 months ago"
+    }, 
+    {
+      "timestamp": "2016-11-20T01:01:07.440918Z", 
+      "value": 8e-06, 
+      "value.currency": "USD", 
+      "when": "10 months ago"
+    }
+  ]
+}
