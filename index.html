@@ -2,6 +2,46 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <style>
+      body {
+        background-color: #F1F3F3
+      }
+      .axis {
+      	font: 10px sans-serif;
+      }
+
+      .axis path,
+      .axis line {
+        fill: none;
+        stroke: #D4D8DA;
+        stroke-width: 2px;
+        shape-rendering: crispEdges;
+      }
+
+      .line {
+        fill: none;
+        stroke: blue;
+        stroke-width: 3px;
+      }
+
+      .overlay {
+        fill: none;
+        pointer-events: all;
+      }
+
+      .focus circle {
+        fill: #F1F3F3;
+        stroke: #6F257F;
+        stroke-width: 5px;
+      }
+
+      .hover-line {
+        stroke: #6F257F;
+        stroke-width: 2px;
+        stroke-dasharray: 3,3;
+      }
+
+    </style>
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -14,29 +54,9 @@
     <title></title>
   </head>
   <body>
-    <svg width="960" height="960" font-family="sans-serif" font-size="10" text-anchor="middle"></svg>
-    <script type="text/javascript">
-      let svg = d3.select("svg"),
-          width = +svg.attr("width"),
-          height = +svg.attr("height");
-
-      let format = d3.format(",d");
-
-      let color = d3.scaleOrdinal(d3.schemeCategory20c);
-
-      let pack = d3.pack()
-                   .size([width, height])
-                   .padding(1.5);
-
-      
-    </script>
+    <svg width="1200" height="500"></svg>
+    <!-- <script src="./js/line_graph.js">
+    </script> -->
+    
   </body>
 </html>
-
-
-<!-- <script>
-// this is for pulling data from data folder
-d3.json("./data/history/btc_history.json", function(data){
-  console.log(data.history);
-});
-</script> -->

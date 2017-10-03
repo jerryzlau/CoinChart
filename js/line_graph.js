@@ -84,7 +84,6 @@ d3.json("./data/history/btc_history.json", function(error, data) {
   function mousemove() {
     let x0 = x.invert(d3.mouse(this)[0]);
     let i = bisectDate(data, x0, 1);
-    console.log(i);
     let d0 = data[i - 1];
     let d1 = data[i];
     let  d = x0 - d0.timestamp > d1.timestamp - x0 ? d1 : d0;
