@@ -1,22 +1,17 @@
+import * as d3 from 'd3';
+
 let svg = d3.select("svg"),
-    margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = +svg.attr("width") - margin.left - margin.right - 50,
+    margin = {top: 20, right: 70, bottom: 30, left: 40},
+    width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
-
-let bisectDate = d3.bisector(function(d) { return d.timestamp; }).left;
-
-let x = d3.scaleTime().range([0, width]);
-let y = d3.scaleLinear().range([height, 0]);
-
-let line = d3.line()
-  .x(function(d) { return x(d.timestamp); })
-  .y(function(d) { return y(d.value); });
 
 let g = svg.append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json("./data/history/btc_history.json", function(error, data) {
+d3.json(`./data/history/btc_history.json`, function(error, data) {
   data = data.history;
+  // console.log(data);
+  data.reverse();
   if (error) throw error;
 
   data.forEach(function(d) {
@@ -24,7 +19,19 @@ d3.json("./data/history/btc_history.json", function(error, data) {
     d.value = +d.value;
   });
 
-  x.domain(d3.extent(data, function(d) { return d.timestamp; }));
+  let x = d3.scaleTime()
+            .domain([data[0].timestamp, data[data.length-1].timestamp] )
+            .range([0, width]);
+  let y = d3.scaleLinear()
+            .range([height, 0]);
+
+  let bisectDate = d3.bisector(function(d) { return d.timestamp; }).left;
+
+  let line = d3.line()
+    .x(function(d) { return x(d.timestamp); })
+    .y(function(d) { return y(d.value); });
+
+  // x.domain(d3.extent(data, function(d) { return d.timestamp; }));
   y.domain([d3.min(data, function(d) { return d.value; }), d3.max(data, function(d) { return d.value; })]);
 
   // x-axis line
@@ -62,8 +69,8 @@ d3.json("./data/history/btc_history.json", function(error, data) {
 
   focus.append("line")
       .attr("class", "y-hover-line hover-line")
-      .attr("x1", width)
-      .attr("x2", width);
+      .attr("x1", 0)
+      .attr("x2", 0);
 
   focus.append("circle")
       .attr("r", 10);
@@ -90,6 +97,6 @@ d3.json("./data/history/btc_history.json", function(error, data) {
     focus.attr("transform", "translate(" + x(d.timestamp) + "," + y(d.value) + ")");
     focus.select("text").text(function() { return d.value; });
     focus.select(".x-hover-line").attr("y2", height - y(d.value));
-    focus.select(".y-hover-line").attr("x2", width + width);
+    focus.select(".y-hover-line").attr("x1", - x(d.timestamp));
   }
 });

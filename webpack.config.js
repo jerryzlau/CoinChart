@@ -1,11 +1,24 @@
+// webpack.config.js
 var path = require("path");
+
+// include plugins config
 module.exports = {
-  entry: {
-    app: ["./app/main.js"]
-  },
+  context: __dirname,
+  entry: './app/main.js',
   output: {
-    path: path.resolve(__dirname, "build"),
-    publicPath: "/assets/",
+    path: path.resolve(__dirname),
     filename: "bundle.js"
-  }
+  },
+  module: {
+    loaders: [
+      {
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: [ 'es2015']
+        }
+      }
+    ]
+  },
+  devtool: 'source-map'
 };
