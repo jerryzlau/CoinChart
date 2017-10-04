@@ -16872,11 +16872,11 @@ var lineChart = function () {
   _createClass(lineChart, [{
     key: "render",
     value: function render(key) {
-      d3.select("body").append("div").attr("class", "chart-container").append("h1").attr("class", "currency-info").text("Currency: " + key);
+      d3.select(".line-chart-index").append("div").attr("class", "line-chart-index-item-" + key).append("h1").attr("class", "currency-info").text("Currency: " + key);
 
-      d3.select("body").select("div").append("h3").attr("class", "currency-info");
+      d3.select(".line-chart-index-item-" + key).append("h3").attr("class", "currency-info");
 
-      var svg = d3.select("body").select("div").append("svg").attr("width", 1200).attr("height", 500);
+      var svg = d3.select(".line-chart-index-item-" + key).append("svg").attr("width", 500).attr("height", 250);
       var margin = { top: 20, right: 70, bottom: 30, left: 40 },
           width = +svg.attr("width") - margin.left - margin.right,
           height = +svg.attr("height") - margin.top - margin.bottom;
@@ -16952,7 +16952,7 @@ var lineChart = function () {
           });
           focus.select(".x-hover-line").attr("y2", height - y(d.value));
           focus.select(".y-hover-line").attr("x1", -x(d.timestamp));
-          d3.select("body").select("h3").text("Price: " + d.value + " Date: " + d.timestamp);
+          d3.select(".line-chart-index-item-" + key).select("h3").text("Price: " + d.value + " Date: " + d.timestamp);
         }
       });
     }
@@ -30040,6 +30040,12 @@ var _d = __webpack_require__(90);
 
 var d3 = _interopRequireWildcard(_d);
 
+var _line_chart = __webpack_require__(175);
+
+var _line_chart2 = _interopRequireDefault(_line_chart);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30052,62 +30058,78 @@ var bubbleChart = function () {
   }
 
   _createClass(bubbleChart, [{
-    key: "render",
+    key: 'render',
     value: function render(data) {
-      d3.select("body").append("div").attr("class", "bubble-page").append("h1").text("BubbleChart");
 
-      d3.select(".bubble-page").append("bubble-chart");
+      d3.select(".bubble-page").append("svg").attr("class", "bubble-chart").attr("width", "1095").attr("height", "900");
 
-      var width = window.innerWidth,
-          height = window.innerHeight + 600,
-          sizeDivisor = 100,
-          nodePadding = 2.5;
-
-      var svg = d3.select("bubble-chart").append("svg").attr("width", width).attr("height", height).append("g").attr("transform", "translate(0,0)");
-
+      var width = 1095,
+          height = 900;
       var color = d3.scaleOrdinal(d3.schemeCategory20);
 
       var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
 
-      var simulation = d3.forceSimulation().force("forceX", d3.forceX().strength(.1).x(width * .5)).force("forceY", d3.forceY().strength(.1).y(height * .5)).force("center", d3.forceCenter().x(width * .5).y(height * .5)).force("charge", d3.forceManyBody().strength(-50));
-
-      // data = data.slice(0,50);
-
-      //get the small ones first
       data = data.sort(function (a, b) {
         return a.rank - b.rank;
       });
 
-      // data = data.slice(0,40);
-
+      data = data.slice(0, 100);
       console.log(data);
 
-      var node = svg.append("g").attr("class", "node").selectAll("circle").data(data).enter().append("circle").attr("r", function (d) {
-        var radius = Math.log(d.usd + 1) * 5;
-        if (radius < 5) radius = 5;
-        return radius;
-      }).attr("fill", function (d) {
-        return color(d.rank);
-      }).attr("cx", function (d) {
-        return d.x;
-      }).attr("cy", function (d) {
-        return d.y;
-      }).call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended)).on("mouseover", function (d) {
-        div.transition().style("display", "block").style("left", d.x + "px").style("top", d.y + "px").style("opacity", .95);
-        div.html("<br/>" + d.name + "<br/>" + "Ticker: " + d.ticker + "<br/>" + "Rank: " + d.rank + "<br/>" + "Value(usd): $" + d.usd);
-      }).on("mouseout", function () {
-        d3.select(".tooltip").style("display", "none");
+      var nodes = data.map(function (d) {
+        return {
+          name: d.name,
+          rank: d.rank,
+          ticker: d.ticker,
+          usd: d.usd,
+          radius: getRadius(d.usd)
+        };
       });
 
-      simulation.nodes(data).force("collide", d3.forceCollide().strength(.5).radius(function (d) {
-        return d.radius + nodePadding;
-      }).iterations(1)).on("tick", function (d) {
-        node.attr("cx", function (e) {
-          return e.x;
-        }).attr("cy", function (e) {
-          return e.y;
-        });
-      });
+      var simulation = d3.forceSimulation(nodes).force('charge', d3.forceManyBody().strength(5)).force('center', d3.forceCenter(width / 2, height / 2)).force('collision', d3.forceCollide().radius(function (d) {
+        return d.radius;
+      })).on('tick', ticked);
+
+      function getRadius(value) {
+        if (value > 100000) {
+          return value / 10000;
+        } else if (value > 1000) {
+          return value / 100;
+        } else if (value > 100) {
+          return value / 10;
+        } else if (value < 1) {
+          return value * 100;
+        } else {
+          return value;
+        }
+      }
+
+      function ticked() {
+        var u = d3.select('svg').selectAll('circle').data(nodes);
+
+        u.enter().append('circle').attr('r', function (d) {
+          return d.radius;
+        }).merge(u).attr('cx', function (d) {
+          return d.x;
+        }).attr('cy', function (d) {
+          return d.y;
+        }).attr("fill", function (d) {
+          return color(d.rank);
+        }).on("mouseover", function (d) {
+          div.transition().style("display", "block").style("left", d.x + "px").style("top", d.y + "px").style("opacity", .95);
+          div.html("<br/>" + d.name + "<br/>" + "Ticker: " + d.ticker + "<br/>" + "Rank: " + d.rank + "<br/>" + "Value(usd): $" + d.usd + "<br/>");
+
+          d3.select(".line-page").append("div").attr("class", "line-chart").html("<script>" + makeLineChart(d.ticker) + "</script>");
+        }).on("mouseout", function () {
+          d3.select(".tooltip").style("display", "none");
+        }).call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended));
+
+        u.exit().remove();
+      }
+
+      function makeLineChart(key) {
+        return new _line_chart2.default(key);
+      }
 
       function dragstarted(d) {
         if (!d3.event.active) simulation.alphaTarget(.03).restart();

@@ -6,23 +6,21 @@ class lineChart {
   }
 
   render(key){
-    d3.select("body")
+    d3.select(".line-chart-index")
       .append("div")
-      .attr("class", "chart-container")
+      .attr("class", `line-chart-index-item-${key}`)
       .append("h1")
       .attr("class", "currency-info")
       .text("Currency: " + key);
 
-    d3.select("body")
-      .select("div")
+    d3.select(`.line-chart-index-item-${key}`)
       .append("h3")
       .attr("class", "currency-info");
 
-    let svg = d3.select("body")
-                .select("div")
+    let svg = d3.select(`.line-chart-index-item-${key}`)
                 .append("svg")
-                .attr("width", 1200)
-                .attr("height", 500);
+                .attr("width", 500)
+                .attr("height", 250);
     let margin = {top: 20, right: 70, bottom: 30, left: 40},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
@@ -120,7 +118,7 @@ class lineChart {
         focus.select("text").text(function() { return d.value; });
         focus.select(".x-hover-line").attr("y2", height - y(d.value));
         focus.select(".y-hover-line").attr("x1", - x(d.timestamp));
-        d3.select("body")
+        d3.select(`.line-chart-index-item-${key}`)
           .select("h3")
           .text("Price: " + d.value + " Date: " + d.timestamp);
       }

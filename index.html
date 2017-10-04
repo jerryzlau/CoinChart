@@ -21,7 +21,7 @@
       .line {
         fill: none;
         stroke: blue;
-        stroke-width: 3px;
+        stroke-width: 2px;
       }
 
       .overlay {
@@ -44,15 +44,6 @@
       .currency-info{
         display: flex;
         justify-content: flex-start;
-      }
-
-      .chart-container{
-        max-width: 1200px;
-      }
-
-      .bubble-page{
-        display: flex;
-        flex-direction: column;
       }
 
       .node circle {
@@ -82,6 +73,41 @@
         z-index: 10;
       }
 
+      .charts{
+        display: flex;
+        flex-direction: row;
+      }
+
+      .line-page{
+        min-width: 50%;
+        min-height: 100%;
+        border: 1px solid black;
+      }
+
+      .bubble-page{
+        display: flex;
+        flex-direction: column;
+        min-width: 50%;
+        min-height: 900px;
+        border: 1px solid black;
+      }
+
+      .bubble-chart{
+        width: inherit;
+        min-height: 91%;
+        border: 1px solid red;
+      }
+
+      .line-chart-index{
+        width: inherit;
+        min-height: 91%;
+        border: 1px solid red;
+      }
+
+      .line-chart-index-item{
+
+      }
+
     </style>
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -95,6 +121,20 @@
     <title></title>
   </head>
   <body>
+    <div class="charts">
+      <div class="bubble-page">
+        <h1>Bubble Chart</h1>
+        <!-- <div class="bubble-chart">
 
+        </div> -->
+      </div>
+
+      <div class="line-page">
+        <h1>Line Chart</h1>
+        <div class="line-chart-index">
+
+        </div>
+      </div>
+    </div>
   </body>
 </html>
