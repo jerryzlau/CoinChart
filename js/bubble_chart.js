@@ -15,8 +15,8 @@ class bubbleChart {
     d3.select(".bubble-page")
       .append("bubble-chart");
 
-    let width = window.innerWidth,
-        height = window.innerHeight,
+    let width = 1200,
+        height = 500,
         sizeDivisor = 100,
         nodePadding = 2.5;
 
@@ -29,18 +29,22 @@ class bubbleChart {
 
     let color = d3.scaleOrdinal(d3.schemeCategory20);
 
+    let div = d3.select("body").append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+
     let simulation = d3.forceSimulation()
     .force("forceX", d3.forceX().strength(.1).x(width * .5))
     .force("forceY", d3.forceY().strength(.1).y(height * .5))
     .force("center", d3.forceCenter().x(width * .5).y(height * .5))
-    .force("charge", d3.forceManyBody().strength(-15));
+    .force("charge", d3.forceManyBody().strength(-100));
 
     // data = data.slice(0,50);
 
     //get the small ones first
     data = data.sort(function(a,b){ return a.rank - b.rank; });
 
-    data = data.slice(0,20);
+    // data = data.slice(0,40);
 
     console.log(data);
 
@@ -51,17 +55,27 @@ class bubbleChart {
                   .enter().append("circle")
                   .attr("r", function(d) {
                     let radius = Math.log(d.usd + 1) * 5;
-                    // if (radius < 1) radius = 10;
+                    if (radius < 1) radius = 5;
                     return radius;
                   })
                   .attr("fill", function(d) { return color(d.rank); })
                   .attr("cx", function(d){ return d.x; })
                   .attr("cy", function(d){ return d.y; })
-                  .text(function(d){ return d.ticker; })
                   .call(d3.drag()
                       .on("start", dragstarted)
                       .on("drag", dragged)
-                      .on("end", dragended));
+                      .on("end", dragended))
+                  .on("mouseover", function(d){
+                    div.transition()
+                        .duration(200)
+                        .style("opacity", .95);
+
+                        div.html(
+                         "<br/>" + d.name + "<br/>" +
+                         "Ticker:" + d.ticker + "<br/>" +
+                         "Rank:" + d.rank + "<br/>" +
+                         "Value(usd): $" + d.usd + "<br/>");
+                  });
 
     simulation
     .nodes(data)
@@ -71,6 +85,8 @@ class bubbleChart {
           .attr("cx", function(e){ return e.x; })
           .attr("cy", function(e){ return e.y; });
     });
+
+
 
     function dragstarted(d) {
       if (!d3.event.active) simulation.alphaTarget(.03).restart();
@@ -88,8 +104,6 @@ class bubbleChart {
       d.fx = null;
       d.fy = null;
     }
-
-
   }
 }
 

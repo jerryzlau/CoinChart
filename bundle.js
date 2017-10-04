@@ -30058,8 +30058,8 @@ var bubbleChart = function () {
 
       d3.select(".bubble-page").append("bubble-chart");
 
-      var width = window.innerWidth,
-          height = window.innerHeight,
+      var width = 1200,
+          height = 500,
           sizeDivisor = 100,
           nodePadding = 2.5;
 
@@ -30067,7 +30067,9 @@ var bubbleChart = function () {
 
       var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-      var simulation = d3.forceSimulation().force("forceX", d3.forceX().strength(.1).x(width * .5)).force("forceY", d3.forceY().strength(.1).y(height * .5)).force("center", d3.forceCenter().x(width * .5).y(height * .5)).force("charge", d3.forceManyBody().strength(-15));
+      var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
+
+      var simulation = d3.forceSimulation().force("forceX", d3.forceX().strength(.1).x(width * .5)).force("forceY", d3.forceY().strength(.1).y(height * .5)).force("center", d3.forceCenter().x(width * .5).y(height * .5)).force("charge", d3.forceManyBody().strength(-100));
 
       // data = data.slice(0,50);
 
@@ -30076,13 +30078,13 @@ var bubbleChart = function () {
         return a.rank - b.rank;
       });
 
-      data = data.slice(0, 20);
+      // data = data.slice(0,40);
 
       console.log(data);
 
       var node = svg.append("g").attr("class", "node").selectAll("circle").data(data).enter().append("circle").attr("r", function (d) {
         var radius = Math.log(d.usd + 1) * 5;
-        // if (radius < 1) radius = 10;
+        if (radius < 1) radius = 5;
         return radius;
       }).attr("fill", function (d) {
         return color(d.rank);
@@ -30090,9 +30092,11 @@ var bubbleChart = function () {
         return d.x;
       }).attr("cy", function (d) {
         return d.y;
-      }).text(function (d) {
-        return d.ticker;
-      }).call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended));
+      }).call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended)).on("mouseover", function (d) {
+        div.transition().duration(200).style("opacity", .95);
+
+        div.html("<br/>" + d.name + "<br/>" + "Ticker:" + d.ticker + "<br/>" + "Rank:" + d.rank + "<br/>" + "Value(usd): $" + d.usd + "<br/>");
+      });
 
       simulation.nodes(data).force("collide", d3.forceCollide().strength(.5).radius(function (d) {
         return d.radius + nodePadding;
