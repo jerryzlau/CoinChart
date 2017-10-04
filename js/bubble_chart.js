@@ -71,7 +71,7 @@ class bubbleChart {
         .on("mouseover", function(d) {
           div.transition()
               .style("display", "block")
-              .style("left", d.x + "px")
+              .style("left", d.x + 20 + "px")
               .style("top", d.y + "px")
               .style("opacity", .95);
               div.html(

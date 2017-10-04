@@ -112,7 +112,7 @@ class lineChart {
 
       // if the chart is clicked on, disappear itself
       item.on("click", function() {
-        item.style("display", "none");
+        item.remove();
       });
 
       function mousemove() {

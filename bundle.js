@@ -16943,7 +16943,7 @@ var lineChart = function () {
 
         // if the chart is clicked on, disappear itself
         item.on("click", function () {
-          item.style("display", "none");
+          item.remove();
         });
 
         function mousemove() {
@@ -30114,7 +30114,7 @@ var bubbleChart = function () {
         }).attr("fill", function (d) {
           return color(d.rank);
         }).on("mouseover", function (d) {
-          div.transition().style("display", "block").style("left", d.x + "px").style("top", d.y + "px").style("opacity", .95);
+          div.transition().style("display", "block").style("left", d.x + 20 + "px").style("top", d.y + "px").style("opacity", .95);
           div.html("<br/>" + d.name + "<br/>" + "Ticker: " + d.ticker + "<br/>" + "Rank: " + d.rank + "<br/>" + "Value(usd): $" + d.usd + "<br/>");
         }).on("mouseout", function () {
           d3.select(".tooltip").style("display", "none");
