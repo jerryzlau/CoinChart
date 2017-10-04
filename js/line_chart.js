@@ -9,6 +9,7 @@ class lineChart {
     d3.select(".line-chart-index")
       .append("div")
       .attr("class", `line-chart-index-item-${key}`)
+      .style("padding-left", "5%")
       .append("h1")
       .attr("class", "currency-info")
       .text("Currency: " + key);
@@ -25,12 +26,13 @@ class lineChart {
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
+    let item = d3.select(`.line-chart-index-item-${key}`);
+
     let g = svg.append("g")
                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     d3.json(`./data/history/${key}_history.json`, function(error, data) {
       data = data.history;
-      console.log(data);
       data.reverse();
       if (error) throw error;
 
@@ -107,6 +109,11 @@ class lineChart {
       .on("mouseover", function() { focus.style("display", null); })
       .on("mouseout", function() { focus.style("display", "none"); })
       .on("mousemove", mousemove);
+
+      // if the chart is clicked on, disappear itself
+      item.on("click", function() {
+        item.style("display", "none");
+      });
 
       function mousemove() {
         let x0 = x.invert(d3.mouse(this)[0]);

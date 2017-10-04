@@ -4,5 +4,5 @@ import bubbleChart from '../js/bubble_chart.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // new lineChart('btc');
-  new bubbleChart(result_ranking);
+  new bubbleChart(result_ranking, 100);
 });

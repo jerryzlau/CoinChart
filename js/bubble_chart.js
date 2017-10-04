@@ -2,11 +2,11 @@ import * as d3 from 'd3';
 import lineChart from './line_chart.js';
 
 class bubbleChart {
-  constructor(data){
-    this.render(data);
+  constructor(data, wanted){
+    this.render(data, wanted);
   }
 
-  render(data){
+  render(data, wanted = data.length){
 
     d3.select(".bubble-page")
       .append("svg")
@@ -21,9 +21,9 @@ class bubbleChart {
                 .attr("class", "tooltip")
                 .style("opacity", 0);
 
-    data = data.sort(function(a,b){ return a.rank - b.rank; });
+    data = data.sort(function(a,b){ return b.usd - a.usd; });
 
-    data = data.slice(0,100);
+    data = data.slice(0,wanted+1);
     console.log(data);
 
     let nodes = data.map(function(d) {
@@ -32,30 +32,20 @@ class bubbleChart {
         rank: d.rank,
         ticker: d.ticker,
         usd: d.usd,
-        radius: getRadius(d.usd)
+        radius: getRadius(d)
       };
     });
 
     let simulation = d3.forceSimulation(nodes)
       .force('charge', d3.forceManyBody().strength(5))
-      .force('center', d3.forceCenter(width / 2, height / 2))
+      .force('center', d3.forceCenter(width / 3, height / 2))
       .force('collision', d3.forceCollide().radius(function(d) {
         return d.radius;
       }))
       .on('tick', ticked);
 
-    function getRadius(value){
-      if(value > 100000){
-        return value/10000;
-      }else if(value > 1000){
-        return value/100;
-      }else if (value > 100){
-        return value/10;
-      }else if (value < 1){
-        return value * 100;
-      }else{
-        return value;
-      }
+    function getRadius(d){
+      return Math.log(d.usd) * 10;
     }
 
     function ticked() {
@@ -90,6 +80,13 @@ class bubbleChart {
                "Rank: " + d.rank + "<br/>" +
                "Value(usd): $" + d.usd + "<br/>");
 
+        })
+        .on("mouseout", function() {
+          d3.select(".tooltip")
+            .style("display", "none");
+        })
+        //on click pop a line chart of that currency
+        .on("click", function(d) {
           d3.select(".line-page")
             .append("div")
             .attr("class", "line-chart")
@@ -98,10 +95,6 @@ class bubbleChart {
               makeLineChart(d.ticker) +
               "</script>"
             );
-        })
-        .on("mouseout", function() {
-          d3.select(".tooltip")
-            .style("display", "none");
         })
         .call(d3.drag()
             .on("start", dragstarted)

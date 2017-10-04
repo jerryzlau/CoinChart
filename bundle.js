@@ -9789,7 +9789,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 document.addEventListener('DOMContentLoaded', function () {
   // new lineChart('btc');
-  new _bubble_chart2.default(_ranking.result_ranking);
+  new _bubble_chart2.default(_ranking.result_ranking, 100);
 });
 
 /***/ }),
@@ -16872,7 +16872,7 @@ var lineChart = function () {
   _createClass(lineChart, [{
     key: "render",
     value: function render(key) {
-      d3.select(".line-chart-index").append("div").attr("class", "line-chart-index-item-" + key).append("h1").attr("class", "currency-info").text("Currency: " + key);
+      d3.select(".line-chart-index").append("div").attr("class", "line-chart-index-item-" + key).style("padding-left", "5%").append("h1").attr("class", "currency-info").text("Currency: " + key);
 
       d3.select(".line-chart-index-item-" + key).append("h3").attr("class", "currency-info");
 
@@ -16881,11 +16881,12 @@ var lineChart = function () {
           width = +svg.attr("width") - margin.left - margin.right,
           height = +svg.attr("height") - margin.top - margin.bottom;
 
+      var item = d3.select(".line-chart-index-item-" + key);
+
       var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       d3.json("./data/history/" + key + "_history.json", function (error, data) {
         data = data.history;
-        console.log(data);
         data.reverse();
         if (error) throw error;
 
@@ -16939,6 +16940,11 @@ var lineChart = function () {
         }).on("mouseout", function () {
           focus.style("display", "none");
         }).on("mousemove", mousemove);
+
+        // if the chart is clicked on, disappear itself
+        item.on("click", function () {
+          item.style("display", "none");
+        });
 
         function mousemove() {
           var x0 = x.invert(d3.mouse(this)[0]);
@@ -30051,15 +30057,17 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var bubbleChart = function () {
-  function bubbleChart(data) {
+  function bubbleChart(data, wanted) {
     _classCallCheck(this, bubbleChart);
 
-    this.render(data);
+    this.render(data, wanted);
   }
 
   _createClass(bubbleChart, [{
     key: 'render',
     value: function render(data) {
+      var wanted = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : data.length;
+
 
       d3.select(".bubble-page").append("svg").attr("class", "bubble-chart").attr("width", "1095").attr("height", "900");
 
@@ -30070,10 +30078,10 @@ var bubbleChart = function () {
       var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
 
       data = data.sort(function (a, b) {
-        return a.rank - b.rank;
+        return b.usd - a.usd;
       });
 
-      data = data.slice(0, 100);
+      data = data.slice(0, wanted + 1);
       console.log(data);
 
       var nodes = data.map(function (d) {
@@ -30082,26 +30090,16 @@ var bubbleChart = function () {
           rank: d.rank,
           ticker: d.ticker,
           usd: d.usd,
-          radius: getRadius(d.usd)
+          radius: getRadius(d)
         };
       });
 
-      var simulation = d3.forceSimulation(nodes).force('charge', d3.forceManyBody().strength(5)).force('center', d3.forceCenter(width / 2, height / 2)).force('collision', d3.forceCollide().radius(function (d) {
+      var simulation = d3.forceSimulation(nodes).force('charge', d3.forceManyBody().strength(5)).force('center', d3.forceCenter(width / 3, height / 2)).force('collision', d3.forceCollide().radius(function (d) {
         return d.radius;
       })).on('tick', ticked);
 
-      function getRadius(value) {
-        if (value > 100000) {
-          return value / 10000;
-        } else if (value > 1000) {
-          return value / 100;
-        } else if (value > 100) {
-          return value / 10;
-        } else if (value < 1) {
-          return value * 100;
-        } else {
-          return value;
-        }
+      function getRadius(d) {
+        return Math.log(d.usd) * 10;
       }
 
       function ticked() {
@@ -30118,10 +30116,12 @@ var bubbleChart = function () {
         }).on("mouseover", function (d) {
           div.transition().style("display", "block").style("left", d.x + "px").style("top", d.y + "px").style("opacity", .95);
           div.html("<br/>" + d.name + "<br/>" + "Ticker: " + d.ticker + "<br/>" + "Rank: " + d.rank + "<br/>" + "Value(usd): $" + d.usd + "<br/>");
-
-          d3.select(".line-page").append("div").attr("class", "line-chart").html("<script>" + makeLineChart(d.ticker) + "</script>");
         }).on("mouseout", function () {
           d3.select(".tooltip").style("display", "none");
+        })
+        //on click pop a line chart of that currency
+        .on("click", function (d) {
+          d3.select(".line-page").append("div").attr("class", "line-chart").html("<script>" + makeLineChart(d.ticker) + "</script>");
         }).call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended));
 
         u.exit().remove();
