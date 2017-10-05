@@ -6,24 +6,26 @@ class bubbleChart {
     this.render(data, wanted);
   }
 
-  render(data, wanted = data.length){
+  render(data, wanted = 1){
 
     d3.select(".bubble-page")
       .append("svg")
       .attr("class", "bubble-chart")
+      .attr("id", "bubble-chart")
       .attr("width", "1095")
-      .attr("height", "900");
+      .attr("height", "600");
 
-    let width = 1095, height = 900;
+    let width = 1095, height = 600;
     let color = d3.scaleOrdinal(d3.schemeCategory20);
 
-    let div = d3.select("body").append("div")
-                .attr("class", "tooltip")
-                .style("opacity", 0);
+    let tooltip = d3.select("body")
+                    .append("div")
+                    .attr("class", "tooltip")
+                    .style("opacity", 0);
 
     data = data.sort(function(a,b){ return b.usd - a.usd; });
 
-    data = data.slice(0,wanted+1);
+    data = data.slice(0,wanted);
     console.log(data);
 
     let nodes = data.map(function(d) {
@@ -37,7 +39,7 @@ class bubbleChart {
     });
 
     let simulation = d3.forceSimulation(nodes)
-      .force('charge', d3.forceManyBody().strength(5))
+      .force('charge', d3.forceManyBody().strength(2))
       .force('center', d3.forceCenter(width / 3, height / 2))
       .force('collision', d3.forceCollide().radius(function(d) {
         return d.radius;
@@ -45,7 +47,9 @@ class bubbleChart {
       .on('tick', ticked);
 
     function getRadius(d){
-      return Math.log(d.usd) * 10;
+      let r = Math.log(d.usd);
+      r = Math.abs(r) * 5;
+      return r;
     }
 
     function ticked() {
@@ -60,41 +64,44 @@ class bubbleChart {
         })
         .merge(u)
         .attr('cx', function(d) {
-          return d.x;
+          // console.log(d);
+          return  Math.max(d.radius, Math.min(width - d.radius, d.x));
+          // return d.x;
         })
         .attr('cy', function(d) {
-          return d.y;
+          return Math.max(d.radius, Math.min(height - d.radius, d.y));
+          // return d.y;
         })
         .attr("fill", function(d) {
           return color(d.rank);
         })
         .on("mouseover", function(d) {
-          div.transition()
-              .style("display", "block")
-              .style("left", d.x + 20 + "px")
-              .style("top", d.y + "px")
-              .style("opacity", .95);
-              div.html(
-               "<br/>" + d.name + "<br/>" +
-               "Ticker: " + d.ticker + "<br/>" +
-               "Rank: " + d.rank + "<br/>" +
-               "Value(usd): $" + d.usd + "<br/>");
+            tooltip.html(
+             "<br/>" + d.name + "<br/>" +
+             "Ticker: " + d.ticker + "<br/>" +
+             "Rank: " + d.rank + "<br/>" +
+             "Value(usd): $" + d.usd + "<br/>")
+             .style("opacity", "1")
+             .style("left", d.x + 20 + "px")
+             .style("top", d.y + "px");
+
 
         })
         .on("mouseout", function() {
-          d3.select(".tooltip")
-            .style("display", "none");
+          tooltip.style("opacity", "0");
         })
-        //on click pop a line chart of that currency
+        //on click push a line chart of that currency
         .on("click", function(d) {
-          d3.select(".line-page")
-            .append("div")
-            .attr("class", "line-chart")
-            .html(
-              "<script>" +
-              makeLineChart(d.ticker) +
-              "</script>"
-            );
+            d3.select(".line-chart-index")
+              .append("div")
+              .attr("class", `line-chart-${d.ticker}`)
+              .html(
+                "<script>" +
+                makeLineChart(d.ticker) +
+                "</script>"
+              );
+
+
         })
         .call(d3.drag()
             .on("start", dragstarted)

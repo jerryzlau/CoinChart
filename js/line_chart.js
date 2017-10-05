@@ -8,10 +8,14 @@ class lineChart {
   render(key){
     d3.select(".line-chart-index")
       .append("div")
-      .attr("class", `line-chart-index-item-${key}`)
-      .style("padding-left", "5%")
+      .attr("class", `line-chart-index-item line-chart-index-item-${key}`)
+      .style("padding-left", "2%")
       .append("h1")
       .attr("class", "currency-info")
+      .text("Currency: " + key);
+
+    d3.select(`.line-chart-index-item-${key}`)
+      .select(".currency-info")
       .text("Currency: " + key);
 
     d3.select(`.line-chart-index-item-${key}`)
@@ -20,13 +24,14 @@ class lineChart {
 
     let svg = d3.select(`.line-chart-index-item-${key}`)
                 .append("svg")
-                .attr("width", 500)
+                .attr("width", 700)
                 .attr("height", 250);
     let margin = {top: 20, right: 70, bottom: 30, left: 40},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
     let item = d3.select(`.line-chart-index-item-${key}`);
+    let lineItem = d3.select(`.line-chart-${key}`);
 
     let g = svg.append("g")
                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -113,6 +118,7 @@ class lineChart {
       // if the chart is clicked on, disappear itself
       item.on("click", function() {
         item.remove();
+        lineItem.remove();
       });
 
       function mousemove() {
@@ -127,7 +133,7 @@ class lineChart {
         focus.select(".y-hover-line").attr("x1", - x(d.timestamp));
         d3.select(`.line-chart-index-item-${key}`)
           .select("h3")
-          .text("Price: " + d.value + " Date: " + d.timestamp);
+          .text("Price: $" + d.value + " Date: " + d.timestamp);
       }
     });
   }

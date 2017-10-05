@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <style>
       body {
-        background-color: #F1F3F3
+        background-color: #F1F3F3;
+        font-family: 'PT Sans', sans-serif;
       }
       .axis {
       	font: 10px sans-serif;
@@ -21,7 +22,7 @@
       .line {
         fill: none;
         stroke: blue;
-        stroke-width: 2px;
+        stroke-width: 1px;
       }
 
       .overlay {
@@ -105,7 +106,11 @@
       }
 
       .line-chart-index-item{
+        cursor: pointer;
+      }
 
+      img{
+        height: 50px;
       }
 
     </style>
@@ -113,7 +118,7 @@
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
-
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <script type="text/javascript"
@@ -121,14 +126,25 @@
     <title></title>
   </head>
   <body>
+    <nav>
+      <img src="http://res.cloudinary.com/jerryzlau/image/upload/v1507223935/coinChart-logo_je5pzf.png" alt="coinChart">
+    </nav>
     <div class="charts">
       <div class="bubble-page">
-        <h1>Bubble Chart</h1>
+        <div class="bubble-title">
+
+        </div>
+        
+        <input id="numCoins"
+               type="range"
+               value="1"
+               min="1" max="50">
       </div>
 
-      <div class="line-page">
+      <div id="line-page" class="line-page">
         <h1>Line Chart</h1>
-        <div class="line-chart-index">
+        <button type="button" name="button" id="clear">Clear All</button>
+        <div id="line-chart-index" class="line-chart-index">
 
         </div>
       </div>
