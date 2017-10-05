@@ -30142,7 +30142,9 @@ var bubbleChart = function () {
 
         u.enter().append('circle').attr('r', function (d) {
           return d.radius;
-        }).merge(u).attr('cx', function (d) {
+        }).merge(u).text(function (d) {
+          return d.ticker;
+        }).attr('cx', function (d) {
           // console.log(d);
           return Math.max(d.radius, Math.min(width - d.radius, d.x));
           // return d.x;

@@ -63,6 +63,9 @@ class bubbleChart {
           return d.radius;
         })
         .merge(u)
+        .text(function(d){
+          return d.ticker;
+        })
         .attr('cx', function(d) {
           // console.log(d);
           return  Math.max(d.radius, Math.min(width - d.radius, d.x));
