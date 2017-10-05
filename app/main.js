@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let numCoins = document.getElementById("numCoins");
   numCoins.addEventListener('input', () => {
     document.getElementById("bubble-chart").remove();
+    d3.selectAll(".tooltip").remove();
     new bubbleChart(result_ranking, numCoins.value);
 
     //remove the title

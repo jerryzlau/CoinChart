@@ -84,24 +84,14 @@ class bubbleChart {
              .style("opacity", "1")
              .style("left", d.x + 20 + "px")
              .style("top", d.y + "px");
-
-
         })
         .on("mouseout", function() {
           tooltip.style("opacity", "0");
         })
         //on click push a line chart of that currency
         .on("click", function(d) {
-            d3.select(".line-chart-index")
-              .append("div")
-              .attr("class", `line-chart-${d.ticker}`)
-              .html(
-                "<script>" +
-                makeLineChart(d.ticker) +
-                "</script>"
-              );
-
-
+          console.log("hit");
+            makeLineChart(d.ticker);
         })
         .call(d3.drag()
             .on("start", dragstarted)

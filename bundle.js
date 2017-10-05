@@ -5008,9 +5008,7 @@ var lineChart = function () {
   _createClass(lineChart, [{
     key: "render",
     value: function render(key) {
-      d3.select(".line-chart-index").append("div").attr("class", "line-chart-index-item line-chart-index-item-" + key).style("padding-left", "2%").append("h1").attr("class", "currency-info").text("Currency: " + key);
-
-      d3.select(".line-chart-index-item-" + key).select(".currency-info").text("Currency: " + key);
+      d3.select(".line-chart-index").append("div").attr("class", "pointer line-chart-index-item-" + key).style("padding-left", "2%").append("h1").attr("class", "currency-name").text("Currency: " + key);
 
       d3.select(".line-chart-index-item-" + key).append("h3").attr("class", "currency-info");
 
@@ -5098,7 +5096,7 @@ var lineChart = function () {
           });
           focus.select(".x-hover-line").attr("y2", height - y(d.value));
           focus.select(".y-hover-line").attr("x1", -x(d.timestamp));
-          d3.select(".line-chart-index-item-" + key).select("h3").text("Price: $" + d.value + " Date: " + d.timestamp);
+          d3.select(".line-chart-index-item-" + key).select(".currency-info").text("Price: $" + d.value + " Date: " + d.timestamp);
         }
       });
     }
@@ -9935,6 +9933,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var numCoins = document.getElementById("numCoins");
   numCoins.addEventListener('input', function () {
     document.getElementById("bubble-chart").remove();
+    d3.selectAll(".tooltip").remove();
     new _bubble_chart2.default(_ranking.result_ranking, numCoins.value);
 
     //remove the title
@@ -30159,7 +30158,8 @@ var bubbleChart = function () {
         })
         //on click push a line chart of that currency
         .on("click", function (d) {
-          d3.select(".line-chart-index").append("div").attr("class", 'line-chart-' + d.ticker).html("<script>" + makeLineChart(d.ticker) + "</script>");
+          console.log("hit");
+          makeLineChart(d.ticker);
         }).call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended));
 
         u.exit().remove();

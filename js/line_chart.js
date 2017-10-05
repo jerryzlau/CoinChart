@@ -8,14 +8,10 @@ class lineChart {
   render(key){
     d3.select(".line-chart-index")
       .append("div")
-      .attr("class", `line-chart-index-item line-chart-index-item-${key}`)
+      .attr("class", `pointer line-chart-index-item-${key}`)
       .style("padding-left", "2%")
       .append("h1")
-      .attr("class", "currency-info")
-      .text("Currency: " + key);
-
-    d3.select(`.line-chart-index-item-${key}`)
-      .select(".currency-info")
+      .attr("class", "currency-name")
       .text("Currency: " + key);
 
     d3.select(`.line-chart-index-item-${key}`)
@@ -132,7 +128,7 @@ class lineChart {
         focus.select(".x-hover-line").attr("y2", height - y(d.value));
         focus.select(".y-hover-line").attr("x1", - x(d.timestamp));
         d3.select(`.line-chart-index-item-${key}`)
-          .select("h3")
+          .select(".currency-info")
           .text("Price: $" + d.value + " Date: " + d.timestamp);
       }
     });
