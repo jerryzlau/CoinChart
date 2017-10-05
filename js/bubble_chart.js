@@ -6,7 +6,7 @@ class bubbleChart {
     this.render(data, wanted);
   }
 
-  render(data, wanted = 1){
+  render(data, wanted = 50){
 
     d3.select(".bubble-page")
       .append("svg")
@@ -48,7 +48,7 @@ class bubbleChart {
 
     function getRadius(d){
       let r = Math.log(d.usd);
-      r = Math.abs(r) * 5;
+      r = Math.abs(r) * 8;
       return r;
     }
 

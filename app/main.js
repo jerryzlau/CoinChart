@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //default 50 currencies
   d3.select(".bubble-title")
     .append("h1")
-    .text("Top 1 Crypto-Currency Most Expensive Bubble Chart");
+    .text("Top 50 Most Expensive Crypto-Currency Bubble Chart");
   new bubbleChart(result_ranking);
 
   //renew bubble chart by input
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //add the new title in
     d3.select(".bubble-title")
       .append("h1")
-      .text(`Top ${numCoins.value} Crypto-Currency Most Expensive Bubble Chart`);
+      .text(`Top ${numCoins.value} Most Expensive Crypto-Currency Bubble Chart`);
 
   });
 

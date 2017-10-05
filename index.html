@@ -207,12 +207,17 @@
         background: #B6B6B6;
       }
 
+      .w3-button {
+        width:150px;
+      }
+
     </style>
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <script type="text/javascript"
@@ -231,13 +236,16 @@
 
         <input id="numCoins"
                type="range"
-               value="1"
+               value="50"
                min="1" max="50">
       </div>
 
       <div id="line-page" class="line-page">
-        <h1>Line Chart</h1>
-        <button type="button" name="button" id="clear">Clear All</button>
+        <h1>Curreny Graph</h1>
+        <button class="w3-button w3-red"
+                type="button"
+                name="button"
+                id="clear">Clear All</button>
         <div id="line-chart-index" class="line-chart-index">
 
         </div>
