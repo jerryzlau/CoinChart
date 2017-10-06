@@ -30114,9 +30114,9 @@ var bubbleChart = function () {
       var wanted = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 25;
 
 
-      d3.select(".bubble-graph").append("svg").attr("class", "bubble-chart").attr("id", "bubble-chart").attr("width", "1095").attr("height", "500");
+      d3.select(".bubble-graph").append("svg").attr("class", "bubble-chart").attr("id", "bubble-chart").attr("width", "680").attr("height", "500");
 
-      var width = 1095,
+      var width = 680,
           height = 500;
       var color = d3.scaleOrdinal(d3.schemeCategory20);
 
@@ -30138,7 +30138,7 @@ var bubbleChart = function () {
         };
       });
 
-      var simulation = d3.forceSimulation(nodes).force('charge', d3.forceManyBody().strength(2)).force('center', d3.forceCenter(width / 3, height / 2)).force('collision', d3.forceCollide().radius(function (d) {
+      var simulation = d3.forceSimulation(nodes).force('charge', d3.forceManyBody().strength(2)).force('center', d3.forceCenter(width / 2, height / 2)).force('collision', d3.forceCollide().radius(function (d) {
         return d.radius;
       })).on('tick', ticked);
 

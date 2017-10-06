@@ -12,10 +12,10 @@ class bubbleChart {
       .append("svg")
       .attr("class", "bubble-chart")
       .attr("id", "bubble-chart")
-      .attr("width", "1095")
+      .attr("width", "680")
       .attr("height", "500");
 
-    let width = 1095, height = 500;
+    let width = 680, height = 500;
     let color = d3.scaleOrdinal(d3.schemeCategory20);
 
     let tooltip = d3.select("body")
@@ -39,7 +39,7 @@ class bubbleChart {
 
     let simulation = d3.forceSimulation(nodes)
       .force('charge', d3.forceManyBody().strength(2))
-      .force('center', d3.forceCenter(width / 3, height / 2))
+      .force('center', d3.forceCenter(width / 2, height / 2))
       .force('collision', d3.forceCollide().radius(function(d) {
         return d.radius;
       }))
