@@ -8,14 +8,14 @@ class bubbleChart {
 
   render(data, wanted = 50){
 
-    d3.select(".bubble-page")
+    d3.select(".bubble-graph")
       .append("svg")
       .attr("class", "bubble-chart")
       .attr("id", "bubble-chart")
       .attr("width", "1095")
-      .attr("height", "600");
+      .attr("height", "500");
 
-    let width = 1095, height = 600;
+    let width = 1095, height = 500;
     let color = d3.scaleOrdinal(d3.schemeCategory20);
 
     let tooltip = d3.select("body")
@@ -67,13 +67,10 @@ class bubbleChart {
           return d.ticker;
         })
         .attr('cx', function(d) {
-          // console.log(d);
           return  Math.max(d.radius, Math.min(width - d.radius, d.x));
-          // return d.x;
         })
         .attr('cy', function(d) {
           return Math.max(d.radius, Math.min(height - d.radius, d.y));
-          // return d.y;
         })
         .attr("fill", function(d) {
           return color(d.rank);

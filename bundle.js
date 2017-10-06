@@ -30113,10 +30113,10 @@ var bubbleChart = function () {
       var wanted = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 50;
 
 
-      d3.select(".bubble-page").append("svg").attr("class", "bubble-chart").attr("id", "bubble-chart").attr("width", "1095").attr("height", "600");
+      d3.select(".bubble-graph").append("svg").attr("class", "bubble-chart").attr("id", "bubble-chart").attr("width", "1095").attr("height", "500");
 
       var width = 1095,
-          height = 600;
+          height = 500;
       var color = d3.scaleOrdinal(d3.schemeCategory20);
 
       var tooltip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
@@ -30156,12 +30156,9 @@ var bubbleChart = function () {
         }).merge(u).text(function (d) {
           return d.ticker;
         }).attr('cx', function (d) {
-          // console.log(d);
           return Math.max(d.radius, Math.min(width - d.radius, d.x));
-          // return d.x;
         }).attr('cy', function (d) {
           return Math.max(d.radius, Math.min(height - d.radius, d.y));
-          // return d.y;
         }).attr("fill", function (d) {
           return color(d.rank);
         }).on("mouseover", function (d) {

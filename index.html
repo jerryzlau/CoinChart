@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <style>
       body {
-        background-color: #F1F3F3;
+        background-color: white;
         font-family: 'PT Sans', sans-serif;
       }
       .axis {
@@ -121,7 +121,7 @@
       input[type=range] {
         height: 32px;
         -webkit-appearance: none;
-        margin: 10px 0;
+        /*margin: 10px 0;*/
         width: 90%;
       }
       input[type=range]:focus {
@@ -209,7 +209,8 @@
       }
 
       .w3-button {
-        width:150px;
+        float: right;
+        width: 150px;
       }
 
     </style>
@@ -234,11 +235,18 @@
         <div class="bubble-title">
 
         </div>
-        <h4>Select coins by range:</h4>
-        <input id="numCoins"
-               type="range"
-               value="50"
-               min="1" max="50">
+
+        <div class="bubble-graph">
+
+        </div>
+
+        <div class="bubble-bar">
+          <h4>Select coins by range:</h4>
+          <input id="numCoins"
+          type="range"
+          value="50"
+          min="1" max="50">
+        </div>
       </div>
 
       <div id="line-page" class="line-page">
