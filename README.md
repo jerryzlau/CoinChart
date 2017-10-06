@@ -14,6 +14,7 @@ On hover of the helper icon, there will be instructions on how to use the websit
 Users have two ways to pull out historic value movement of each crypto-currencies. 
 * Click on a bubble
 * Search Directly by ticker, unlike the bubble chart, search bar can return all exisiting currencies
+* Each historic chart is interactive, users can point at the chart to return price of a specifc date
 ![historic-chart](https://github.com/jerryzlau/coinChart/blob/master/docs/historic_chart.png)
 
 ### Bubble Chart 
