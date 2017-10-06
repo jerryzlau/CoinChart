@@ -30171,8 +30171,11 @@ var bubbleChart = function () {
         })
         //on click push a line chart of that currency
         .on("click", function (d) {
-          console.log("hit");
-          makeLineChart(d.ticker);
+          var checker = document.getElementsByClassName('line-chart-index-item-' + d.ticker);
+
+          if (checker.length === 0) {
+            makeLineChart(d.ticker);
+          }
         }).call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended));
 
         u.exit().remove();

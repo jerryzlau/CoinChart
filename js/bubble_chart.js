@@ -93,8 +93,11 @@ class bubbleChart {
         })
         //on click push a line chart of that currency
         .on("click", function(d) {
-          console.log("hit");
+          let checker = document.getElementsByClassName(`line-chart-index-item-${d.ticker}`);
+
+          if (checker.length === 0){
             makeLineChart(d.ticker);
+          }
         })
         .call(d3.drag()
             .on("start", dragstarted)
