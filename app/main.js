@@ -45,8 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     let key = e.target.elements[0].value;
     let result = new lineChart(key);
+    debugger
     if (!result){
       alert("Currency doesn't exist");
     }
   });
+
 });

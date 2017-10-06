@@ -15,7 +15,7 @@ class lineChart {
       .text("Currency: " + key);
 
     d3.select(`.line-chart-index-item-${key}`)
-      .append("h3")
+      .append("h4")
       .attr("class", "currency-info");
 
     let svg = d3.select(`.line-chart-index-item-${key}`)

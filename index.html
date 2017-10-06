@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <style>
       body {
-        background-color: white;
-        font-family: 'PT Sans', sans-serif;
+        background-color: #2E393F;
+        color: white;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
       .axis {
       	font: 10px sans-serif;
@@ -21,7 +22,7 @@
 
       .line {
         fill: none;
-        stroke: blue;
+        stroke: #5E713A;
         stroke-width: 1px;
       }
 
@@ -58,6 +59,10 @@
         cursor: pointer;
       }
 
+      circle:hover{
+        fill: white;
+      }
+
       .node{
         color: white;
         position: relative;
@@ -88,6 +93,7 @@
         min-width: 50%;
         min-height: 100%;
         /*border: 1px solid black;*/
+        padding: 20px;
       }
 
       .bubble-page{
@@ -96,18 +102,22 @@
         min-width: 50%;
         min-height: 900px;
         /*border: 1px solid black;*/
+        padding: 20px;
       }
 
       .bubble-chart{
-        width: inherit;
+        max-width: 100%;
         min-height: 91%;
-        /*border: 1px solid red;*/
       }
 
       .line-chart-index{
         width: inherit;
         min-height: 91%;
-        /*border: 1px solid red;*/
+      }
+
+      .pointer{
+        min-height: 300px;
+        background-color: #1D262C;
       }
 
       .pointer{
@@ -122,7 +132,7 @@
         height: 32px;
         -webkit-appearance: none;
         /*margin: 10px 0;*/
-        width: 90%;
+        width: 100%;
       }
       input[type=range]:focus {
         outline: none;
@@ -209,16 +219,29 @@
       }
 
       .w3-button {
-        float: right;
         width: 150px;
       }
+
+      #search-key{
+        height: 37px;
+        width: 80%;
+      }
+
+      #search{
+        display: flex;
+        justify-content: space-between;
+      }
+
+      nav h1{
+        margin-left: 20px;
+      }
+
 
     </style>
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -228,7 +251,7 @@
   </head>
   <body>
     <nav>
-      <img src="http://res.cloudinary.com/jerryzlau/image/upload/v1507223935/coinChart-logo_je5pzf.png" alt="coinChart">
+      <h1>CoinChart</h1>
     </nav>
     <div class="charts">
       <div class="bubble-page">
@@ -255,10 +278,13 @@
           <h4>Search By Ticker (works on all 876 existing coins):</h4>
           <form id="search" action="index.html" method="post">
             <input id="search-key" type="text" name="search" value="">
-            <input type="submit" name="submit" value="Search Currency">
+            <input class="w3-button w3-teal"
+                   type="submit"
+                   name="submit"
+                   value="Search Currency">
           </form>
+          <button class="w3-button w3-teal"
 
-          <button class="w3-button w3-red"
           type="button"
           name="button"
           id="clear">Clear All</button>
