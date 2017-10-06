@@ -9924,6 +9924,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 document.addEventListener('DOMContentLoaded', function () {
+  console.log(_ranking.coin_types);
 
   //default 50 currencies
   d3.select(".bubble-title").append("h2").text("Top 25 Most Expensive Crypto-Currencies Bubble Chart");
@@ -9957,9 +9958,12 @@ document.addEventListener('DOMContentLoaded', function () {
   search.addEventListener('submit', function (e) {
     e.preventDefault();
     var key = e.target.elements[0].value;
-    var result = new _line_chart2.default(key);
-    if (!result) {
+
+    if (_ranking.coin_types.includes(key)) {
+      new _line_chart2.default(key);
+    } else {
       alert("Currency doesn't exist");
+      e.target.elements[0].value = "";
     }
   });
 });
@@ -9974,23 +9978,19 @@ document.addEventListener('DOMContentLoaded', function () {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.result_ranking = undefined;
+exports.result_ranking = exports.coin_types = undefined;
 
 var _merged_ranking = __webpack_require__(175);
 
-// import fs from 'fs';
-
-// let ranking = {};
-//
-// MERGED_RANKING.forEach(coin => {
-//   ranking[coin.coin.ticker] = coin.coin;
-// });
-
 var ranking = [];
+var coins = [];
+
 _merged_ranking.MERGED_RANKING.forEach(function (coin) {
   ranking.push(coin.coin);
+  coins.push(coin.coin.ticker);
 });
 
+var coin_types = exports.coin_types = coins;
 var result_ranking = exports.result_ranking = ranking;
 
 /***/ }),
@@ -30126,7 +30126,6 @@ var bubbleChart = function () {
       });
 
       data = data.slice(0, wanted);
-      console.log(data);
 
       var nodes = data.map(function (d) {
         return {

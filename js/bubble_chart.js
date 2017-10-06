@@ -26,7 +26,6 @@ class bubbleChart {
     data = data.sort(function(a,b){ return b.usd - a.usd; });
 
     data = data.slice(0,wanted);
-    console.log(data);
 
     let nodes = data.map(function(d) {
       return {

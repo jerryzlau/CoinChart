@@ -1,9 +1,10 @@
-import {result_ranking} from '../data/ranking.js';
+import {result_ranking, coin_types} from '../data/ranking.js';
 import lineChart from '../js/line_chart.js';
 import bubbleChart from '../js/bubble_chart.js';
 import * as d3 from 'd3';
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log(coin_types);
 
   //default 50 currencies
   d3.select(".bubble-title")
@@ -44,9 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
   search.addEventListener('submit', (e) => {
     e.preventDefault();
     let key = e.target.elements[0].value;
-    let result = new lineChart(key);
-    if (!result){
+
+    if (coin_types.includes(key)){
+      new lineChart(key);
+    }else{
       alert("Currency doesn't exist");
+      e.target.elements[0].value = "";
     }
   });
 
