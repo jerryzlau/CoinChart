@@ -9924,7 +9924,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 document.addEventListener('DOMContentLoaded', function () {
-  console.log(_ranking.coin_types);
 
   //default 50 currencies
   d3.select(".bubble-title").append("h2").text("Top 25 Most Expensive Crypto-Currencies Bubble Chart");
@@ -9944,13 +9943,14 @@ document.addEventListener('DOMContentLoaded', function () {
     d3.select(".bubble-title").append("h2").text('Top ' + numCoins.value + ' Most Expensive Crypto-Currencies Bubble Chart');
   });
 
-  //remove line charts
+  //clear line charts
   document.getElementById("clear").addEventListener('click', function () {
     document.getElementById("line-chart-index").remove();
     var index = document.createElement("div");
     index.setAttribute("class", "line-chart-index");
     index.setAttribute("id", "line-chart-index");
     document.getElementById("line-page").appendChild(index);
+    document.getElementById("search-key").value = "";
   });
 
   //search by ticker
@@ -9958,11 +9958,12 @@ document.addEventListener('DOMContentLoaded', function () {
   search.addEventListener('submit', function (e) {
     e.preventDefault();
     var key = e.target.elements[0].value;
+    var checker = document.getElementsByClassName('line-chart-index-item-' + key);
 
-    if (_ranking.coin_types.includes(key)) {
+    if (_ranking.coin_types.includes(key) && checker.length === 0) {
       new _line_chart2.default(key);
     } else {
-      alert("Currency doesn't exist");
+      alert("Invalid Input");
       e.target.elements[0].value = "";
     }
   });

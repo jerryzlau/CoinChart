@@ -4,7 +4,6 @@ import bubbleChart from '../js/bubble_chart.js';
 import * as d3 from 'd3';
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log(coin_types);
 
   //default 50 currencies
   d3.select(".bubble-title")
@@ -31,13 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  //remove line charts
+  //clear line charts
   document.getElementById("clear").addEventListener('click', () => {
     document.getElementById("line-chart-index").remove();
     let index = document.createElement("div");
     index.setAttribute("class", "line-chart-index");
     index.setAttribute("id", "line-chart-index");
     document.getElementById("line-page").appendChild(index);
+    document.getElementById("search-key").value = "";
   });
 
   //search by ticker
@@ -45,11 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
   search.addEventListener('submit', (e) => {
     e.preventDefault();
     let key = e.target.elements[0].value;
+    let checker = document.getElementsByClassName(`line-chart-index-item-${key}`);
 
-    if (coin_types.includes(key)){
+    if (coin_types.includes(key) && checker.length === 0){
       new lineChart(key);
     }else{
-      alert("Currency doesn't exist");
+      alert("Invalid Input");
       e.target.elements[0].value = "";
     }
   });
