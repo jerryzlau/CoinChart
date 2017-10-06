@@ -10,7 +10,7 @@ class lineChart {
       .append("div")
       .attr("class", `pointer line-chart-index-item-${key}`)
       .style("padding-left", "2%")
-      .append("h1")
+      .append("h2")
       .attr("class", "currency-name")
       .text("Currency: " + key);
 

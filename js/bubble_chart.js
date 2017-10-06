@@ -6,7 +6,7 @@ class bubbleChart {
     this.render(data, wanted);
   }
 
-  render(data, wanted = 50){
+  render(data, wanted = 25){
 
     d3.select(".bubble-graph")
       .append("svg")

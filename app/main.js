@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //default 50 currencies
   d3.select(".bubble-title")
-    .append("h1")
-    .text("Top 50 Most Expensive Crypto-Currencies Bubble Chart");
+    .append("h2")
+    .text("Top 25 Most Expensive Crypto-Currencies Bubble Chart");
   new bubbleChart(result_ranking);
 
   //renew bubble chart by input
@@ -20,12 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //remove the title
     d3.select(".bubble-title")
-      .select("h1")
+      .select("h2")
       .remove();
 
     //add the new title in
     d3.select(".bubble-title")
-      .append("h1")
+      .append("h2")
       .text(`Top ${numCoins.value} Most Expensive Crypto-Currencies Bubble Chart`);
   });
 
@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     let key = e.target.elements[0].value;
     let result = new lineChart(key);
-    debugger
     if (!result){
       alert("Currency doesn't exist");
     }

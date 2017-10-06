@@ -5479,7 +5479,7 @@ var lineChart = function () {
   _createClass(lineChart, [{
     key: "render",
     value: function render(key) {
-      d3.select(".line-chart-index").append("div").attr("class", "pointer line-chart-index-item-" + key).style("padding-left", "2%").append("h1").attr("class", "currency-name").text("Currency: " + key);
+      d3.select(".line-chart-index").append("div").attr("class", "pointer line-chart-index-item-" + key).style("padding-left", "2%").append("h2").attr("class", "currency-name").text("Currency: " + key);
 
       d3.select(".line-chart-index-item-" + key).append("h4").attr("class", "currency-info");
 
@@ -9926,7 +9926,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 document.addEventListener('DOMContentLoaded', function () {
 
   //default 50 currencies
-  d3.select(".bubble-title").append("h1").text("Top 50 Most Expensive Crypto-Currencies Bubble Chart");
+  d3.select(".bubble-title").append("h2").text("Top 25 Most Expensive Crypto-Currencies Bubble Chart");
   new _bubble_chart2.default(_ranking.result_ranking);
 
   //renew bubble chart by input
@@ -9937,10 +9937,10 @@ document.addEventListener('DOMContentLoaded', function () {
     new _bubble_chart2.default(_ranking.result_ranking, numCoins.value);
 
     //remove the title
-    d3.select(".bubble-title").select("h1").remove();
+    d3.select(".bubble-title").select("h2").remove();
 
     //add the new title in
-    d3.select(".bubble-title").append("h1").text('Top ' + numCoins.value + ' Most Expensive Crypto-Currencies Bubble Chart');
+    d3.select(".bubble-title").append("h2").text('Top ' + numCoins.value + ' Most Expensive Crypto-Currencies Bubble Chart');
   });
 
   //remove line charts
@@ -9958,7 +9958,6 @@ document.addEventListener('DOMContentLoaded', function () {
     e.preventDefault();
     var key = e.target.elements[0].value;
     var result = new _line_chart2.default(key);
-    debugger;
     if (!result) {
       alert("Currency doesn't exist");
     }
@@ -30111,7 +30110,7 @@ var bubbleChart = function () {
   _createClass(bubbleChart, [{
     key: 'render',
     value: function render(data) {
-      var wanted = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 50;
+      var wanted = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 25;
 
 
       d3.select(".bubble-graph").append("svg").attr("class", "bubble-chart").attr("id", "bubble-chart").attr("width", "1095").attr("height", "500");
