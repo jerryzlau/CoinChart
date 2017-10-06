@@ -92,7 +92,7 @@ class bubbleChart {
           let checker = document.getElementsByClassName(`line-chart-index-item-${d.ticker}`);
 
           if (checker.length === 0){
-            makeLineChart(d.ticker);
+            return new lineChart(d.ticker);
           }
         })
         .call(d3.drag()
@@ -101,10 +101,6 @@ class bubbleChart {
             .on("end", dragended));
 
       u.exit().remove();
-    }
-
-    function makeLineChart(key){
-      return new lineChart(key);
     }
 
     function dragstarted(d) {

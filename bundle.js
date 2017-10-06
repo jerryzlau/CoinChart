@@ -9967,6 +9967,43 @@ document.addEventListener('DOMContentLoaded', function () {
       e.target.elements[0].value = "";
     }
   });
+
+  //help info
+  d3.select(".help-icon").on("mouseover", function () {
+    //add single chart help
+    new _line_chart2.default("dope");
+    d3.select(".line-chart-index-item-dope").append("p").attr("class", "help-text-single").text("This is the history of a selected coin, click it to remove it");
+
+    //add multiple chart help
+    new _line_chart2.default("jobs");
+    d3.select(".line-chart-index-item-jobs").append("p").attr("class", "help-text-multiple").text("You can have multiple historic chart for comparison");
+
+    //add clear all charts help
+    d3.select("body").append("p").attr("class", "help-text-clear").text("You can clear all charts at once");
+
+    //add bubble chart help
+    d3.select("body").append("p").attr("class", "help-text-bubble").text("These bubbles are scaled to the value of each currency: click on each to request a historic chart");
+
+    //add bubble chart bar help
+    d3.select("body").append("p").attr("class", "help-text-bubble-bar").text("Scroll to compare # coins up to top 50");
+  }).on("mouseout", function () {
+    //remove single chart help
+    d3.select(".line-chart-index-item-dope").remove();
+    d3.select(".help-text").remove();
+
+    //remove multiple chart help
+    d3.select(".line-chart-index-item-jobs").remove();
+    d3.select(".help-text-multiple").remove();
+
+    //remove clear help
+    d3.select(".help-text-clear").remove();
+
+    //remove clear help
+    d3.select(".help-text-bubble").remove();
+
+    //remove clear help
+    d3.select(".help-text-bubble-bar").remove();
+  });
 });
 
 /***/ }),
@@ -30171,15 +30208,11 @@ var bubbleChart = function () {
           var checker = document.getElementsByClassName('line-chart-index-item-' + d.ticker);
 
           if (checker.length === 0) {
-            makeLineChart(d.ticker);
+            return new _line_chart2.default(d.ticker);
           }
         }).call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended));
 
         u.exit().remove();
-      }
-
-      function makeLineChart(key) {
-        return new _line_chart2.default(key);
       }
 
       function dragstarted(d) {
