@@ -234,7 +234,7 @@
         <div class="bubble-title">
 
         </div>
-
+        <h4>Select coins by range:</h4>
         <input id="numCoins"
                type="range"
                value="50"
@@ -243,10 +243,18 @@
 
       <div id="line-page" class="line-page">
         <h1>Currency Graph</h1>
-        <button class="w3-button w3-red"
-                type="button"
-                name="button"
-                id="clear">Clear All</button>
+        <div class="line-tool-bar">
+          <h4>Search By Ticker:</h4>
+          <form id="search" action="index.html" method="post">
+            <input id="search-key" type="text" name="search" value="">
+            <input type="submit" name="submit" value="Search Currency">
+          </form>
+
+          <button class="w3-button w3-red"
+          type="button"
+          name="button"
+          id="clear">Clear All</button>
+        </div>
         <div id="line-chart-index" class="line-chart-index">
 
         </div>

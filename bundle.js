@@ -9926,7 +9926,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 document.addEventListener('DOMContentLoaded', function () {
 
   //default 50 currencies
-  d3.select(".bubble-title").append("h1").text("Top 50 Most Expensive Crypto-Currency Bubble Chart");
+  d3.select(".bubble-title").append("h1").text("Top 50 Most Expensive Crypto-Currencies Bubble Chart");
   new _bubble_chart2.default(_ranking.result_ranking);
 
   //renew bubble chart by input
@@ -9940,7 +9940,7 @@ document.addEventListener('DOMContentLoaded', function () {
     d3.select(".bubble-title").select("h1").remove();
 
     //add the new title in
-    d3.select(".bubble-title").append("h1").text('Top ' + numCoins.value + ' Most Expensive Crypto-Currency Bubble Chart');
+    d3.select(".bubble-title").append("h1").text('Top ' + numCoins.value + ' Most Expensive Crypto-Currencies Bubble Chart');
   });
 
   //remove line charts
@@ -9950,6 +9950,17 @@ document.addEventListener('DOMContentLoaded', function () {
     index.setAttribute("class", "line-chart-index");
     index.setAttribute("id", "line-chart-index");
     document.getElementById("line-page").appendChild(index);
+  });
+
+  //search by ticker
+  var search = document.getElementById("search");
+  search.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var key = e.target.elements[0].value;
+    var result = new _line_chart2.default(key);
+    if (!result) {
+      alert("Currency doesn't exist");
+    }
   });
 });
 
