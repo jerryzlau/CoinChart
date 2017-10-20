@@ -9975,8 +9975,11 @@ document.addEventListener('DOMContentLoaded', function () {
     d3.select(".line-chart-index-item-dope").append("p").attr("class", "help-text-single").text("This is the history of a selected coin, click it to remove it");
 
     //add multiple chart help
-    new _line_chart2.default("jobs");
-    d3.select(".line-chart-index-item-jobs").append("p").attr("class", "help-text-multiple").text("You can have multiple historic chart for comparison");
+    // new lineChart("jobs");
+    // d3.select(".line-chart-index-item-jobs")
+    //   .append("p")
+    //   .attr("class", "help-text-multiple")
+    //   .text("You can have multiple historic chart for comparison");
 
     //add clear all charts help
     // d3.select("body")
