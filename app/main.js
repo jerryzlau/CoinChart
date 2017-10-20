@@ -97,17 +97,17 @@ document.addEventListener('DOMContentLoaded', () => {
       d3.select(".help-text").remove();
 
       //remove multiple chart help
-      d3.select(".line-chart-index-item-jobs").remove();
-      d3.select(".help-text-multiple").remove();
+      // d3.select(".line-chart-index-item-jobs").remove();
+      // d3.select(".help-text-multiple").remove();
 
       //remove clear help
-      d3.select(".help-text-clear").remove();
+      // d3.select(".help-text-clear").remove();
 
       //remove clear help
       d3.select(".help-text-bubble").remove();
 
       //remove clear help
-      d3.select(".help-text-bubble-bar").remove();
+      // d3.select(".help-text-bubble-bar").remove();
     });
 
 });
