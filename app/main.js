@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       //   .append("p")
       //   .attr("class", "help-text-multiple")
       //   .text("You can have multiple historic chart for comparison");
-
+ 
       //add clear all charts help
       // d3.select("body")
       //   .append("p")
