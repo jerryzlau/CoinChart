@@ -1,6 +1,6 @@
 # CoinChart - a data visualization for Crypto-Currencies 
 
-[Live Website](www.coinchart.me)
+[Live Website](http://www.coinchart.me/)
 
 ## Background 
 As cryptocurrencies begin to gain explosive populaity in the world, it is important to visualize those data to make better judgement for investment. CoinChart is a data visualization that compares a variety of cryptocurrencies with their historic data and market value to better understand the strengthen and weakness of each currency. 
@@ -14,6 +14,7 @@ On hover of the helper icon, there will be instructions on how to use the websit
 Users have two ways to pull out historic value movement of each crypto-currencies. 
 * Click on a bubble
 * Search Directly by ticker, unlike the bubble chart, search bar can return all exisiting currencies
+* Each historic chart is interactive, users can point at the chart to return price of a specifc date
 ![historic-chart](https://github.com/jerryzlau/coinChart/blob/master/docs/historic_chart.png)
 
 ### Bubble Chart 
