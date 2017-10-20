@@ -73,10 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .text("You can have multiple historic chart for comparison");
 
       //add clear all charts help
-      d3.select("body")
-        .append("p")
-        .attr("class", "help-text-clear")
-        .text("You can clear all charts at once");
+      // d3.select("body")
+      //   .append("p")
+      //   .attr("class", "help-text-clear")
+      //   .text("You can clear all charts at once");
 
       //add bubble chart help
       d3.select("body")
@@ -85,10 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .text("These bubbles are scaled to the value of each currency: click on each to request a historic chart");
 
       //add bubble chart bar help
-      d3.select("body")
-        .append("p")
-        .attr("class", "help-text-bubble-bar")
-        .text("Scroll to compare # coins up to top 50");
+      // d3.select("body")
+      //   .append("p")
+      //   .attr("class", "help-text-bubble-bar")
+      //   .text("Scroll to compare # coins up to top 50");
 
     })
     .on("mouseout", () => {
