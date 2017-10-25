@@ -1,298 +1,329 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta property="og:image"              content="http://res.cloudinary.com/jerryzlau/image/upload/v1507270411/Screen_Shot_2017-10-05_at_11.13.08_PM_iaxf3c.png" />
-    <meta property="og:url"                content="www.coinchart.me" />
-    <meta property="og:title"              content="coinChart" />
-    <meta property="og:description"        content="A Crypto-Currencies Data Visualization" />
-    <style>
-      body {
-        background-color: #2E393F;
-        color: white;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        padding: 10px;
-      }
 
-      .title{
-        font-family: 'Bungee', cursive;
-      }
+<head>
+  <meta charset="utf-8">
+  <meta property="og:image" content="http://res.cloudinary.com/jerryzlau/image/upload/v1507270411/Screen_Shot_2017-10-05_at_11.13.08_PM_iaxf3c.png"
+  />
+  <meta property="og:url" content="www.coinchart.me" />
+  <meta property="og:title" content="coinChart" />
+  <meta property="og:description" content="A Crypto-Currencies Data Visualization" />
+  <style>
+    body {
+      background-color: #2E393F;
+      color: white;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      padding: 30px;
+    }
 
-      .axis {
-      	font: 10px sans-serif;
-      }
+    .title {
+      font-family: 'Bungee', cursive;
+    }
 
-      .axis path,
-      .axis line {
-        fill: none;
-        stroke: #D4D8DA;
-        stroke-width: 2px;
-        shape-rendering: crispEdges;
-      }
+    .axis {
+      font: 10px sans-serif;
+    }
 
-      text{
-        fill: white;
-      }
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #D4D8DA;
+      stroke-width: 2px;
+      shape-rendering: crispEdges;
+    }
 
-      .line {
-        fill: none;
-        stroke: #5E713A;
-        stroke-width: 2px;
-      }
+    text {
+      fill: white;
+    }
 
-      .overlay {
-        fill: none;
-        pointer-events: all;
-      }
+    .line {
+      fill: none;
+      stroke: #5E713A;
+      stroke-width: 2px;
+    }
 
-      .focus circle {
-        fill: #F1F3F3;
-        stroke: #b7285a;
-        stroke-width: 5px;
-      }
+    .overlay {
+      fill: none;
+      pointer-events: all;
+    }
 
-      .hover-line {
-        stroke: #6F257F;
-        stroke-width: 2px;
-        stroke-dasharray: 3,3;
-      }
+    .focus circle {
+      fill: #F1F3F3;
+      stroke: #b7285a;
+      stroke-width: 5px;
+    }
 
-      .currency-info{
-        display: flex;
-        justify-content: flex-start;
-      }
+    .hover-line {
+      stroke: #6F257F;
+      stroke-width: 2px;
+      stroke-dasharray: 3, 3;
+    }
 
-      .node circle {
-        stroke: #3a403d;
-        stroke-width: .5px;
-        font-size: 100px;
-      }
+    .currency-info {
+      display: flex;
+      justify-content: flex-start;
+    }
 
-      circle{
-        text-align: center;
-        cursor: pointer;
-      }
+    .node circle {
+      stroke: #3a403d;
+      stroke-width: .5px;
+      font-size: 100px;
+    }
 
-      circle:hover{
-        fill: white;
-      }
+    circle {
+      text-align: center;
+      cursor: pointer;
+    }
 
-      .node{
-        color: white;
-        position: relative;
-      }
+    circle:hover {
+      fill: white;
+    }
 
-      div.tooltip {
-        position: absolute;
-        text-align: center;
-        width: 200px;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        height: 200px;
-        font-size: 22px;
-        line-height: 1.5;
-        background-color: rgba(255, 255, 255, 0.75);
-        border-radius: 8px;
-        pointer-events: none;
-        color: black;
-        z-index: 10;
-      }
+    .node {
+      color: white;
+      position: relative;
+    }
 
-      .charts{
-        display: flex;
-        flex-direction: row;
-      }
+    div.tooltip {
+      position: absolute;
+      text-align: center;
+      width: 200px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      height: 200px;
+      font-size: 22px;
+      line-height: 1.5;
+      background-color: rgba(255, 255, 255, 0.75);
+      border-radius: 8px;
+      pointer-events: none;
+      color: black;
+      z-index: 10;
+    }
 
-      .line-page{
-        min-width: 50%;
-        min-height: 100%;
-        padding: 20px;
-        padding-top: 0;
-        padding-left: 0;
-      }
+    .charts {
+      display: flex;
+      flex-direction: row;
+    }
 
-      .bubble-page{
+    .line-page {
+      min-width: 50%;
+      min-height: 100%;
+      padding: 20px;
+      padding-top: 0;
+      padding-left: 0;
+    }
+
+    .bubble-page {
+      display: flex;
+      flex-direction: column;
+      min-width: 50%;
+      min-height: 100%;
+      padding: 20px;
+      padding-top: 0;
+    }
+
+    .bubble-chart {
+      max-width: 100%;
+      min-height: 91%;
+    }
+
+    .line-chart-index {
+      width: inherit;
+      min-height: 91%;
+    }
+
+    .pointer {
+      min-height: 300px;
+      min-width: 708px;
+      border-radius: 10px;
+      background-color: #1D262C;
+    }
+
+    .pointer {
+      cursor: pointer;
+    }
+
+    input[type=range] {
+      height: 24px;
+      -webkit-appearance: none;
+      border-radius: 14px;
+      background: #232528;
+      width: 90%;
+    }
+
+    input[type=range]:focus {
+      outline: none;
+    }
+
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 16px;
+      cursor: pointer;
+      animate: 0.2s;
+      box-shadow: 0px 0px 0px #000000;
+      border-radius: 25px;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      height: 24px;
+      width: 35px;
+      border-radius: 50px;
+      background: #3C6B9B;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -5px;
+    }
+
+    input[type=range]::-moz-range-track {
+      width: 100%;
+      height: 16px;
+      cursor: pointer;
+      animate: 0.2s;
+      box-shadow: 0px 0px 0px #000000;
+      background: #B6B6B6;
+      border-radius: 25px;
+      border: 1px solid #8A8A8A;
+    }
+
+    input[type=range]::-moz-range-thumb {
+      box-shadow: 1px 1px 1px #828282;
+      border: 1px solid #8A8A8A;
+      height: 24px;
+      width: 35px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    input[type=range]::-ms-track {
+      width: 100%;
+      height: 16px;
+      cursor: pointer;
+      animate: 0.2s;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+
+    input[type=range]::-ms-fill-lower {
+      background: #B6B6B6;
+      border: 1px solid #8A8A8A;
+      border-radius: 50px;
+      box-shadow: 0px 0px 0px #000000;
+    }
+
+    input[type=range]::-ms-fill-upper {
+      background: #B6B6B6;
+      border: 1px solid #8A8A8A;
+      border-radius: 50px;
+      box-shadow: 0px 0px 0px #000000;
+    }
+
+    input[type=range]::-ms-thumb {
+      margin-top: 1px;
+      box-shadow: 1px 1px 1px #828282;
+      border: 1px solid #8A8A8A;
+      height: 24px;
+      width: 35px;
+      border-radius: 6px;
+      background: #DADADA;
+      cursor: pointer;
+    }
+
+    input[type=range]:focus::-ms-fill-lower {
+      background: #B6B6B6;
+    }
+
+    input[type=range]:focus::-ms-fill-upper {
+      background: #B6B6B6;
+    }
+
+    .w3-button {
+      height: 38px;
+      width: 150px;
+    }
+
+    #search-key {
+      height: 37px;
+      width: 75%;
+    }
+
+    #search {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav h1 {
+      margin-left: 1.5%;
+    }
+
+    .icon {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .help-text-single {
+      position: absolute;
+      color: red;
+      z-index: 10;
+      left: 58%;
+      top: 50%;
+    }
+
+    .help-text-multiple {
+      position: absolute;
+      color: red;
+      z-index: 10;
+      left: 58%;
+      top: 88%;
+    }
+
+    .help-text-clear {
+      position: absolute;
+      color: red;
+      z-index: 10;
+      left: 63%;
+      top: 27.5%;
+    }
+
+    .help-text-bubble {
+      background-color: rgba(255, 255, 255, 0.8);
+      position: absolute;
+      color: red;
+      width: 300px;
+      padding: 10px;
+      border-radius: 10px;
+      z-index: 10;
+      left: 9%;
+      top: 35%;
+    }
+
+    .help-text-bubble-bar {
+      position: absolute;
+      color: red;
+      z-index: 10;
+      left: 14.5%;
+      top: 86.8%;
+    }
+
+    .header-right {
+      display: flex;
+      justify-content: space-around;
+      min-width: 150px;
+    }
+
+    @media only screen and (max-width: 1000px) {
+      .charts {
         display: flex;
         flex-direction: column;
-        min-width: 50%;
-        min-height: 100%;
-        padding: 20px;
-        padding-top: 0;
       }
 
-      .bubble-chart{
-        max-width: 100%;
-        min-height: 91%;
-      }
-
-      .line-chart-index{
-        width: inherit;
-        min-height: 91%;
-      }
-
-      .pointer{
-        min-height: 300px;
-        min-width: 708px;
-        border-radius: 10px;
-        background-color: #1D262C;
-      }
-
-      .pointer{
-        cursor: pointer;
-      }
-
-      input[type=range] {
-        height: 24px;
-        -webkit-appearance: none;
-        border-radius: 14px;
-        background: #232528;
-        width: 90%;
-      }
-      input[type=range]:focus {
-        outline: none;
-      }
-      input[type=range]::-webkit-slider-runnable-track {
-        width: 100%;
-        height: 16px;
-        cursor: pointer;
-        animate: 0.2s;
-        box-shadow: 0px 0px 0px #000000;
-        border-radius: 25px;
-      }
-      input[type=range]::-webkit-slider-thumb {
-        height: 24px;
-        width: 35px;
-        border-radius: 50px;
-        background: #3C6B9B;
-        cursor: pointer;
-        -webkit-appearance: none;
-        margin-top: -5px;
-      }
-
-      input[type=range]::-moz-range-track {
-        width: 100%;
-        height: 16px;
-        cursor: pointer;
-        animate: 0.2s;
-        box-shadow: 0px 0px 0px #000000;
-        background: #B6B6B6;
-        border-radius: 25px;
-        border: 1px solid #8A8A8A;
-      }
-      input[type=range]::-moz-range-thumb {
-        box-shadow: 1px 1px 1px #828282;
-        border: 1px solid #8A8A8A;
-        height: 24px;
-        width: 35px;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-      input[type=range]::-ms-track {
-        width: 100%;
-        height: 16px;
-        cursor: pointer;
-        animate: 0.2s;
-        background: transparent;
-        border-color: transparent;
-        color: transparent;
-      }
-      input[type=range]::-ms-fill-lower {
-        background: #B6B6B6;
-        border: 1px solid #8A8A8A;
-        border-radius: 50px;
-        box-shadow: 0px 0px 0px #000000;
-      }
-      input[type=range]::-ms-fill-upper {
-        background: #B6B6B6;
-        border: 1px solid #8A8A8A;
-        border-radius: 50px;
-        box-shadow: 0px 0px 0px #000000;
-      }
-      input[type=range]::-ms-thumb {
-        margin-top: 1px;
-        box-shadow: 1px 1px 1px #828282;
-        border: 1px solid #8A8A8A;
-        height: 24px;
-        width: 35px;
-        border-radius: 6px;
-        background: #DADADA;
-        cursor: pointer;
-      }
-      input[type=range]:focus::-ms-fill-lower {
-        background: #B6B6B6;
-      }
-      input[type=range]:focus::-ms-fill-upper {
-        background: #B6B6B6;
-      }
-
-      .w3-button {
-        height: 38px;
-        width: 150px;
-      }
-
-      #search-key{
-        height: 37px;
-        width: 75%;
-      }
-
-      #search{
-        display: flex;
-        justify-content: space-between;
-      }
-
-      nav h1{
-        margin-left: 1.5%;
-      }
-
-      @media only screen and (max-width: 1310px) {
-        .charts{
-          display: flex;
-          flex-direction: column;
-        }
-
-        .help-icon{
-          display: none;
-        }
-      }
-
-      .help-icon{
-        width: 30px;
-        height: 30px;
-        margin-top: 1%;
-        margin-right: 1%;
-        cursor: pointer;
-      }
-
-      .header{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-      .help-text-single{
-        position: absolute;
-        color: red;
-        z-index: 10;
-        left: 58%;
-        top: 50%;
-      }
-
-      .help-text-multiple{
-        position: absolute;
-        color: red;
-        z-index: 10;
-        left: 58%;
-        top: 88%;
-      }
-
-      .help-text-clear{
-        position: absolute;
-        color: red;
-        z-index: 10;
-        left: 63%;
-        top: 27.5%;
-      }
-
-      .help-text-bubble{
+      .help-text-bubble {
         background-color: rgba(255, 255, 255, 0.8);
         position: absolute;
         color: red;
@@ -300,82 +331,80 @@
         padding: 10px;
         border-radius: 10px;
         z-index: 10;
-        left: 9%;
-        top: 35%;
+        left: 40%;
+        top: 20%;
       }
 
-      .help-text-bubble-bar{
+      .help-text-single {
         position: absolute;
         color: red;
         z-index: 10;
-        left: 14.5%;
-        top: 86.8%;
+        left: 25%;
+        top: 63%;
       }
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+  <script type="text/javascript" src="./bundle.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="http://i0.kym-cdn.com/entries/icons/original/000/012/534/bitcoin.png"
+  />
+  <title>CoinChart</title>
+</head>
 
-    </style>
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.min.js"
-      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
-    <script type="text/javascript"
-            src="./bundle.js"></script>
-    <link rel="shortcut icon"
-          type="image/x-icon"
-          href="http://i0.kym-cdn.com/entries/icons/original/000/012/534/bitcoin.png" />
-    <title>CoinChart</title>
-  </head>
-  <body>
-    <nav>
-      <div class="header">
-        <h1 class="title">CoinChart</h1>
-        <img src="http://res.cloudinary.com/jerryzlau/image/upload/v1507307919/information-1294813_640_xixxwh.png"
-        class="help-icon" />
-      </div>
-    </nav>
-    <div class="charts">
-      <div class="bubble-page">
-        <div class="bubble-title">
-
-        </div>
-
-        <div class="bubble-graph">
-
-        </div>
-
-        <div class="bubble-bar">
-          <h4>Select top # coins:</h4>
-          <input id="numCoins"
-          type="range"
-          value="25"
-          min="1" max="50">
-        </div>
-      </div>
-
-      <div id="line-page" class="line-page">
-        <h2>Currency History Graph</h2>
-
-        <div class="line-tool-bar">
-          <h4>Search By Ticker (works on all 876 existing coins):</h4>
-          <form id="search" action="index.html" method="post">
-            <input id="search-key" type="text" name="search" value="">
-            <input class="w3-button w3-teal"
-                   type="submit"
-                   name="submit"
-                   value="Search Currency">
-          </form>
-
-          <button class="w3-button w3-teal"
-                  type="button"
-                  name="button"
-                  id="clear">Clear All</button>
-        </div>
-        <div id="line-chart-index" class="line-chart-index">
-
-        </div>
+<body>
+  <nav>
+    <div class="header">
+      <h1 class="title">CoinChart</h1>
+      <div class="header-right">
+        <a href="https://www.linkedin.com/in/jerryzlau/">
+          <img src="http://res.cloudinary.com/jerryzlau/image/upload/c_scale,w_30/v1508897977/square-linkedin-256_qpcm3m.png" class="icon"
+          />
+        </a>
+        <a href="https://github.com/jerryzlau">
+          <img src="http://res.cloudinary.com/jerryzlau/image/upload/c_scale,w_30/v1508898510/github_npnfhb.png" class="icon" />
+        </a>
+        <img src="http://res.cloudinary.com/jerryzlau/image/upload/v1507307919/information-1294813_640_xixxwh.png" class="icon help-icon"
+        />
       </div>
     </div>
-  </body>
+  </nav>
+  <div class="charts">
+    <div class="bubble-page">
+      <div class="bubble-title">
+
+      </div>
+
+      <div class="bubble-graph">
+
+      </div>
+
+      <div class="bubble-bar">
+        <h4>Select top # coins:</h4>
+        <input id="numCoins" type="range" value="25" min="1" max="50">
+      </div>
+    </div>
+
+    <div id="line-page" class="line-page">
+      <h2>Currency History Graph</h2>
+
+      <div class="line-tool-bar">
+        <h4>Search By Ticker (works on all 876 existing coins):</h4>
+        <form id="search" action="index.html" method="post">
+          <input id="search-key" type="text" name="search" value="">
+          <input class="w3-button w3-teal" type="submit" name="submit" value="Search Currency">
+        </form>
+
+        <button class="w3-button w3-red" type="button" name="button" id="clear">Clear Charts</button>
+      </div>
+      <div id="line-chart-index" class="line-chart-index">
+
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
