@@ -3,7 +3,7 @@
 [Live Website](http://www.coinchart.me/)
 
 ## Background 
-As cryptocurrencies begin to gain explosive populaity in the world, it is important to visualize those data to make better judgement for investment. CoinChart is a data visualization that compares a variety of cryptocurrencies with their historic data and market value to better understand the strengthen and weakness of each currency. 
+As cryptocurrencies begin to gain explosive popularity in the world, it is important to visualize those data to make a better judgment for investment. CoinChart is a data visualization that compares a variety of cryptocurrencies with their historical data and market value to better understand the strengths and weakness of each currency.
 
 ## Usage 
 ### Instructions 
